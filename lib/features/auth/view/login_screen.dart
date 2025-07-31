@@ -5,51 +5,39 @@ import 'package:shartflix/features/auth/bloc/auth_bloc.dart';
 import 'package:shartflix/features/auth/bloc/auth_event.dart';
 import 'package:shartflix/features/auth/bloc/auth_state.dart';
 import 'package:shartflix/features/auth/widget/social_login.dart';
-import 'package:shartflix/features/auth/widget/user_agreement_text.dart';
 import 'package:shartflix/shared/utils/context/context_extensions.dart';
-import 'package:shartflix/shared/utils/snackbars/snackbars.dart';
 import 'package:shartflix/shared/utils/spacers/spacers.dart';
 import 'package:shartflix/shared/utils/validators/validator.dart';
 import 'package:shartflix/widgets/custom_elevated_button.dart';
 import 'package:shartflix/widgets/custom_password_field.dart';
 import 'package:shartflix/widgets/custom_text_field.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
-  final _formKey2 = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
+class _LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _confirmPasswordController = TextEditingController();
 
   @override
   void dispose() {
-    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
-    _confirmPasswordController.dispose();
     super.dispose();
   }
 
-  void _register() async {
-    if (_formKey2.currentState!.validate()) {
+  void _login() {
+    if (_formKey.currentState!.validate()) {
       context.read<AuthBloc>().add(
-        AuthRegisterRequested(
-          name: _nameController.text.trim(),
+        AuthLoginRequested(
           email: _emailController.text.trim(),
           password: _passwordController.text,
         ),
-      );
-    } else {
-      CustomSnackbar.errorSnackbar(
-        context: context,
-        message: context.l10n.checkRegisterFields,
       );
     }
   }
@@ -60,7 +48,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthAuthenticated) {
-            context.go('/upload-photo');
+            context.go('/home');
           } else if (state is AuthError) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -80,7 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: SizedBox(
                   height: context.screenHeight * 0.9,
                   child: Form(
-                    key: _formKey2,
+                    key: _formKey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -90,9 +78,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Text(
-                              context.l10n.register,
-                              style: context.textTheme.headlineMedium,
+                              context.l10n.welcome,
                               textAlign: TextAlign.center,
+                              style: context.textTheme.headlineMedium,
                             ),
                             Spacers.medium,
                             Padding(
@@ -105,56 +93,44 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 style: context.textTheme.bodyLarge,
                               ),
                             ),
-                            Spacers.large,
-
-                            CustomTextField(
-                              controller: _nameController,
-                              label: context.l10n.fullName,
-                              icon: Image.asset('assets/icon/person.png'),
-                              validator: (value) =>
-                                  Validators.fullName(value, context),
-                            ),
-                            Spacers.medium,
-
+                            Spacers.verticalExtraLarge,
                             CustomTextField(
                               controller: _emailController,
                               label: context.l10n.email,
                               icon: Image.asset('assets/icon/email.png'),
-
-                              validator: (value) => Validators.email(
-                                context,
-                                _emailController.text.trim(),
-                              ),
+                              validator: (p0) {
+                                return Validators.email(
+                                  context,
+                                  _emailController.text.trim(),
+                                );
+                              },
                             ),
-                            Spacers.medium,
-
+                            Spacers.extraLarge,
                             CustomPasswordField(
                               controller: _passwordController,
                               label: context.l10n.password,
-                              validator: (value) => Validators.password(
-                                _passwordController.text,
-                                context,
-                              ),
-                            ),
-                            Spacers.medium,
-
-                            CustomPasswordField(
-                              controller: _confirmPasswordController,
-                              label: context.l10n.confirmPassword,
-                              validator: (value) {
-                                if (value != _passwordController.text) {
-                                  return context.l10n.passwordsNotMatch;
-                                }
-                                return null;
+                              validator: (p0) {
+                                return Validators.password(
+                                  _passwordController.text,
+                                  context,
+                                );
                               },
                             ),
-                            Spacers.large,
-
-                            UserAgreementText(),
-                            Spacers.large,
-
+                            Spacers.extraLarge,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                TextButton(
+                                  onPressed: isLoading
+                                      ? null
+                                      : () => context.go('/forgot-password'),
+                                  child: Text(context.l10n.forgotPassword),
+                                ),
+                              ],
+                            ),
+                            Spacers.extraLarge,
                             CustomElevatedButton(
-                              onPressed: isLoading ? null : _register,
+                              onPressed: isLoading ? null : _login,
                               child: isLoading
                                   ? const SizedBox(
                                       height: 20,
@@ -164,7 +140,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       ),
                                     )
                                   : Text(
-                                      context.l10n.register,
+                                      context.l10n.loginButton,
                                       style: context.textTheme.bodyLarge
                                           ?.copyWith(
                                             fontWeight: FontWeight.bold,
@@ -173,36 +149,39 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ],
                         ),
-                        Column(
-                          children: [
-                            Spacers.large,
 
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Spacers.verticalExtraLarge,
                             Row(
+                              spacing: 20,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SocialLogin(
                                   imagePath: 'assets/icon/google.png',
                                 ),
-                                Spacers.horizontalMedium,
                                 SocialLogin(imagePath: 'assets/icon/apple.png'),
-                                Spacers.horizontalMedium,
                                 SocialLogin(
                                   imagePath: 'assets/icon/facebook.png',
                                 ),
                               ],
                             ),
-                            Spacers.extraLarge,
+                            Spacers.verticalExtraLarge,
 
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(context.l10n.alreadyHaveAccount),
+                                Text(
+                                  context.l10n.dontHaveAccount,
+                                  style: context.textTheme.labelLarge,
+                                ),
                                 TextButton(
                                   onPressed: isLoading
                                       ? null
-                                      : () => context.go('/login'),
+                                      : () => context.go('/register'),
                                   child: Text(
-                                    context.l10n.loginButton,
+                                    context.l10n.register,
                                     style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                     ),

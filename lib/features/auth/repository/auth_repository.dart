@@ -1,12 +1,14 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:http_parser/http_parser.dart';
 import 'package:shartflix/features/auth/model/login_parameter.dart';
 import 'package:shartflix/features/auth/model/user_model.dart';
 import 'package:shartflix/features/auth/model/register_paarameter.dart';
 
-import 'package:shartflix/shared/constants/url.dart';
-import 'package:shartflix/shared/exceptions/app_exceptions.dart';
+import 'package:shartflix/shared/utils/context/constants/url.dart';
+import 'package:shartflix/shared/utils/exceptions/app_exceptions.dart';
 import 'package:shartflix/shared/model/api_response.dart';
 import 'package:shartflix/shared/network/dio_client.dart';
 import 'package:shartflix/shared/utils/storage.dart';
@@ -34,6 +36,8 @@ class AuthRepository {
     } on DioException catch (e) {
       if (e.response?.statusCode == 401) {
         throw UnauthorizedException();
+      } else if (e.response?.statusCode == 400) {
+        throw UserAlreadyExistsException();
       } else {
         throw ServerException(e.message ?? 'Sunucu hatası');
       }
@@ -91,6 +95,74 @@ class AuthRepository {
       return null;
     } catch (e) {
       return null;
+    }
+  }
+
+  Future<String> uploadProfileImage(File imageFile) async {
+    try {
+      final token = await StorageService.getToken();
+
+      if (token == null) {
+        throw Exception('Token bulunamadı');
+      }
+
+      final fileName = imageFile.path.split('/').last;
+      final fileExtension = fileName.split('.').last.toLowerCase();
+
+      MediaType mediaType;
+      switch (fileExtension) {
+        case 'jpg':
+        case 'jpeg':
+          mediaType = MediaType('image', 'jpeg');
+          break;
+        case 'png':
+          mediaType = MediaType('image', 'png');
+          break;
+        case 'webp':
+          mediaType = MediaType('image', 'webp');
+          break;
+        default:
+          mediaType = MediaType('application', 'octet-stream');
+      }
+
+      final formData = FormData.fromMap({
+        'file': await MultipartFile.fromFile(
+          imageFile.path,
+          filename: fileName,
+          contentType: mediaType,
+        ),
+      });
+
+      final response = await Dio().post(
+        'https://caseapi.servicelabs.tech/user/upload_photo',
+        data: formData,
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $token',
+            // Content-Type manuel eklenmedi; Dio kendisi otomatik ayarlıyor.
+          },
+        ),
+      );
+
+      if (response.statusCode == 200) {
+        final data = response.data;
+        return data['imageUrl'] ??
+            data['profileImageUrl'] ??
+            data['url'] ??
+            'Yükleme başarılı ama URL dönmedi.';
+      } else {
+        throw Exception('Fotoğraf yüklenemedi: ${response.statusMessage}');
+      }
+    } on DioException catch (e) {
+      if (e.response != null) {
+        throw Exception(
+          'Fotoğraf yükleme hatası: ${e.response?.data['message'] ?? e.message}',
+        );
+      } else {
+        throw Exception('Ağ hatası: ${e.message}');
+      }
+    } catch (e) {
+      throw Exception('Beklenmeyen hata: $e');
     }
   }
 }

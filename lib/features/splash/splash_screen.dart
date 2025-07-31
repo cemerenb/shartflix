@@ -31,7 +31,6 @@ class _SplashScreenState extends State<SplashScreen>
 
     _animationController.forward();
 
-    // Auth durumunu kontrol et
     context.read<AuthBloc>().add(AuthCheckRequested());
   }
 
@@ -47,16 +46,14 @@ class _SplashScreenState extends State<SplashScreen>
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthAuthenticated) {
-            // Kullanıcı giriş yapmışsa ana sayfaya git
             Future.delayed(const Duration(milliseconds: 500), () {
-              if (mounted) {
+              if (context.mounted) {
                 context.go('/home');
               }
             });
           } else if (state is AuthUnauthenticated) {
-            // Kullanıcı giriş yapmamışsa login sayfasına git
             Future.delayed(const Duration(milliseconds: 500), () {
-              if (mounted) {
+              if (context.mounted) {
                 context.go('/login');
               }
             });
@@ -79,7 +76,6 @@ class _SplashScreenState extends State<SplashScreen>
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Logo
                   Container(
                     width: 120,
                     height: 120,
@@ -88,7 +84,7 @@ class _SplashScreenState extends State<SplashScreen>
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.3),
+                          color: Colors.black.withAlpha(75),
                           blurRadius: 20,
                           offset: const Offset(0, 10),
                         ),
@@ -102,7 +98,6 @@ class _SplashScreenState extends State<SplashScreen>
                   ),
                   const SizedBox(height: 32),
 
-                  // App Name
                   Text(
                     'Smartflix',
                     style: Theme.of(context).textTheme.headlineLarge?.copyWith(
@@ -113,7 +108,6 @@ class _SplashScreenState extends State<SplashScreen>
                   ),
                   const SizedBox(height: 16),
 
-                  // Subtitle
                   Text(
                     'Your Movie Experience',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -123,7 +117,6 @@ class _SplashScreenState extends State<SplashScreen>
                   ),
                   const SizedBox(height: 48),
 
-                  // Loading Indicator
                   const SizedBox(
                     width: 32,
                     height: 32,

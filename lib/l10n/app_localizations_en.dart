@@ -9,6 +9,9 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get loremIpsum => 'Tempus varius a vitae interdum id tortor elementum tristique eleifend at.';
+
+  @override
   String get login => 'Login';
 
   @override
@@ -84,5 +87,38 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loading => 'Loading...';
 
   @override
-  String get welcome => 'Welcome to Smartflix';
+  String get welcome => 'Welcome';
+
+  @override
+  String get forgotPassword => 'Forgot Password';
+
+  @override
+  String get fullName => 'Full Name';
+
+  @override
+  String get pleaseEnterFullName => 'Please enter your full name';
+
+  @override
+  String get iReadAndAgree => 'I have read and agree to the ';
+
+  @override
+  String get userAgreement => 'User Agreement';
+
+  @override
+  String get pleaseReadUserAgreement => 'Please continue by reading this agreement.';
+
+  @override
+  String get checkRegisterFields => 'Please make sure you fill in the fields correctly';
+
+  @override
+  String get uploadPhoto => 'Upload Photo';
+
+  @override
+  String get profileDetail => 'Profile Detail';
+
+  @override
+  String get profileLoremIpsum => 'Resources out incentivize relaxation floor loss cc.';
+
+  @override
+  String get continueText => 'Continue';
 }

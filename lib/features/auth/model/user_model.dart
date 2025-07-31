@@ -2,14 +2,14 @@ class UserModel {
   final String id;
   final String name;
   final String email;
-  final String photoUrl;
+  final String? photoUrl;
   final String token;
 
   UserModel({
     required this.id,
     required this.name,
     required this.email,
-    required this.photoUrl,
+    this.photoUrl,
     required this.token,
   });
 
@@ -18,7 +18,7 @@ class UserModel {
       id: json['id'] ?? json['_id'],
       name: json['name'],
       email: json['email'],
-      photoUrl: json['photoUrl'],
+      photoUrl: json['photoUrl'] ?? '',
       token: json['token'],
     );
   }

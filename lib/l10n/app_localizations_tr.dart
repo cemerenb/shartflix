@@ -9,6 +9,9 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get loremIpsum => 'Tempus varius a vitae interdum id tortor elementum tristique eleifend at.';
+
+  @override
   String get login => 'Giriş Yap';
 
   @override
@@ -84,5 +87,38 @@ class AppLocalizationsTr extends AppLocalizations {
   String get loading => 'Yükleniyor...';
 
   @override
-  String get welcome => 'Smartflix\'e Hoş Geldiniz';
+  String get welcome => 'Merhabalar';
+
+  @override
+  String get forgotPassword => 'Şifremi Unuttum';
+
+  @override
+  String get fullName => 'Ad Soyad';
+
+  @override
+  String get pleaseEnterFullName => 'Lütfen adınızı ve soyadınızı girin';
+
+  @override
+  String get iReadAndAgree => 'Kullanıcı sözleşmesini ';
+
+  @override
+  String get userAgreement => 'okudum ve kabul ediyorum.';
+
+  @override
+  String get pleaseReadUserAgreement => 'Bu sözleşmeyi okuyaral devam ediniz lütfen.';
+
+  @override
+  String get checkRegisterFields => 'Lütfen alanları doğru şekilde doldurduğunuzdan emin olun';
+
+  @override
+  String get uploadPhoto => 'Fotoğraf Yükle';
+
+  @override
+  String get profileDetail => 'Profi Detayı';
+
+  @override
+  String get profileLoremIpsum => 'Resources out incentivize relaxation floor loss cc.';
+
+  @override
+  String get continueText => 'Devam Et';
 }

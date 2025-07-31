@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shartflix/features/auth/bloc/auth_bloc.dart';
 import 'package:shartflix/features/auth/bloc/auth_state.dart';
-import 'package:shartflix/features/auth/view/login_page.dart';
+import 'package:shartflix/features/auth/view/login_screen.dart';
 import 'package:shartflix/features/auth/view/register_screen.dart';
-import 'package:shartflix/features/placholder_view.dart';
+import 'package:shartflix/features/auth/view/upload_photo_screen.dart';
+
 import 'package:shartflix/features/splash/splash_screen.dart';
 
 class AppRouter {
@@ -19,14 +20,17 @@ class AppRouter {
         final authState = authBloc.state;
         final isOnAuthPage =
             state.matchedLocation == '/login' ||
-            state.matchedLocation == '/register';
+            state.matchedLocation == '/register' ||
+            state.matchedLocation == '/upload-photo';
         final isOnSplash = state.matchedLocation == '/splash';
 
         // Splash ekranındayken yönlendirme yapma
         if (isOnSplash) return null;
 
-        // Kullanıcı giriş yapmışsa ve auth sayfasındaysa ana sayfaya yönlendir
-        if (authState is AuthAuthenticated && isOnAuthPage) {
+        if (authState is AuthAuthenticated &&
+            isOnAuthPage &&
+            state.matchedLocation != '/register' &&
+            state.matchedLocation != '/upload-photo') {
           return '/home';
         }
 
@@ -50,11 +54,17 @@ class AppRouter {
           path: '/register',
           builder: (context, state) => const RegisterScreen(),
         ),
-        /* ShellRoute(
+        GoRoute(
+          path: '/upload-photo',
+          builder: (context, state) => const UploadPhotoScreen(),
+        ),
+
+        /*
+        ShellRoute(
           navigatorKey: _shellNavigatorKey,
           builder: (context, state, child) => MainScreen(child: child),
           routes: [
-            GoRoute(ß
+            GoRoute(
               path: '/home',
               builder: (context, state) => const HomeScreen(),
             ),
@@ -63,7 +73,7 @@ class AppRouter {
               builder: (context, state) => const ProfileScreen(),
             ),
           ],
-        ), */
+        ),*/
       ],
     );
   }

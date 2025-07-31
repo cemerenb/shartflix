@@ -1,5 +1,6 @@
 {
   "@@locale": "en",
+    "loremIpsum": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
   "login": "Login",
   "register": "Register",
   "email": "Email",
@@ -25,5 +26,18 @@
   "favorites": "Favorites",
   "logout": "Logout",
   "loading": "Loading...",
-  "welcome": "Welcome to Smartflix"
+  "welcome": "Welcome",
+  "forgotPassword": "Forgot Password",
+  "fullName": "Full Name",
+  "pleaseEnterFullName": "Please enter your full name",
+  "iReadAndAgree": "I have read and agree to the ",
+  "userAgreement": "User Agreement",
+  "pleaseReadUserAgreement": "Please continue by reading this agreement.",
+  "checkRegisterFields": "Please make sure you fill in the fields correctly",
+  "uploadPhoto": "Upload Photo",
+  "profileDetail": "Profile Detail",
+  "profileLoremIpsum" : "Resources out incentivize relaxation floor loss cc.",
+  "continueText": "Continue"
+
+
 }

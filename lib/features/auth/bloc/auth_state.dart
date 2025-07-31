@@ -31,3 +31,23 @@ class AuthError extends AuthState {
   @override
   List<Object> get props => [message];
 }
+
+class AuthImageUploading extends AuthState {}
+
+class AuthImageUploadSuccess extends AuthState {
+  final String imageUrl;
+
+  const AuthImageUploadSuccess(this.imageUrl);
+
+  @override
+  List<Object> get props => [imageUrl];
+}
+
+class AuthImageUploadError extends AuthState {
+  final String message;
+
+  const AuthImageUploadError(this.message);
+
+  @override
+  List<Object> get props => [message];
+}

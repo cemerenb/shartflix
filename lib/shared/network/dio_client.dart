@@ -1,5 +1,7 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
-import 'package:shartflix/shared/constants/url.dart';
+import 'package:shartflix/shared/utils/context/constants/url.dart';
 
 class DioClient {
   late final Dio _dio;
@@ -18,7 +20,7 @@ class DioClient {
       LogInterceptor(
         requestBody: true,
         responseBody: true,
-        logPrint: (o) => print(o),
+        logPrint: (o) => log(o.toString()),
       ),
     );
   }

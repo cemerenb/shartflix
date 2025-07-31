@@ -95,6 +95,12 @@ abstract class AppLocalizations {
     Locale('tr')
   ];
 
+  /// No description provided for @loremIpsum.
+  ///
+  /// In en, this message translates to:
+  /// **'Tempus varius a vitae interdum id tortor elementum tristique eleifend at.'**
+  String get loremIpsum;
+
   /// No description provided for @login.
   ///
   /// In en, this message translates to:
@@ -248,8 +254,74 @@ abstract class AppLocalizations {
   /// No description provided for @welcome.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to Smartflix'**
+  /// **'Welcome'**
   String get welcome;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password'**
+  String get forgotPassword;
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
+  /// No description provided for @pleaseEnterFullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your full name'**
+  String get pleaseEnterFullName;
+
+  /// No description provided for @iReadAndAgree.
+  ///
+  /// In en, this message translates to:
+  /// **'I have read and agree to the '**
+  String get iReadAndAgree;
+
+  /// No description provided for @userAgreement.
+  ///
+  /// In en, this message translates to:
+  /// **'User Agreement'**
+  String get userAgreement;
+
+  /// No description provided for @pleaseReadUserAgreement.
+  ///
+  /// In en, this message translates to:
+  /// **'Please continue by reading this agreement.'**
+  String get pleaseReadUserAgreement;
+
+  /// No description provided for @checkRegisterFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Please make sure you fill in the fields correctly'**
+  String get checkRegisterFields;
+
+  /// No description provided for @uploadPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload Photo'**
+  String get uploadPhoto;
+
+  /// No description provided for @profileDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Detail'**
+  String get profileDetail;
+
+  /// No description provided for @profileLoremIpsum.
+  ///
+  /// In en, this message translates to:
+  /// **'Resources out incentivize relaxation floor loss cc.'**
+  String get profileLoremIpsum;
+
+  /// No description provided for @continueText.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueText;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

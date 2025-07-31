@@ -1,6 +1,7 @@
 {
   "@@locale": "tr",
   "login": "Giriş Yap",
+  "loremIpsum": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
   "register": "Kayıt Ol",
   "email": "E-posta",
   "password": "Şifre",
@@ -25,5 +26,17 @@
   "favorites": "Favoriler",
   "logout": "Çıkış Yap",
   "loading": "Yükleniyor...",
-  "welcome": "Smartflix'e Hoş Geldiniz"
+  "welcome": "Merhabalar",
+  "forgotPassword": "Şifremi Unuttum",
+"fullName": "Ad Soyad",
+  "pleaseEnterFullName": "Lütfen adınızı ve soyadınızı girin",
+  "iReadAndAgree": "Kullanıcı sözleşmesini ",
+  "userAgreement": "okudum ve kabul ediyorum.",
+  "pleaseReadUserAgreement": "Bu sözleşmeyi okuyaral devam ediniz lütfen.",
+"checkRegisterFields" : "Lütfen alanları doğru şekilde doldurduğunuzdan emin olun",
+"uploadPhoto": "Fotoğraf Yükle",
+  "profileDetail": "Profi Detayı",
+  "profileLoremIpsum" : "Resources out incentivize relaxation floor loss cc.",
+  "continueText": "Devam Et"
+
 }

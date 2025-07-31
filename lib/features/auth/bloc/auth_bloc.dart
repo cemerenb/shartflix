@@ -1,6 +1,8 @@
+import 'dart:io';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shartflix/features/auth/model/login_parameter.dart';
 import 'package:shartflix/features/auth/model/register_paarameter.dart';
+import 'package:shartflix/features/auth/model/user_model.dart';
 import 'package:shartflix/features/auth/repository/auth_repository.dart';
 import 'auth_event.dart';
 import 'auth_state.dart';
@@ -13,6 +15,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthLoginRequested>(_onAuthLoginRequested);
     on<AuthRegisterRequested>(_onAuthRegisterRequested);
     on<AuthLogoutRequested>(_onAuthLogoutRequested);
+    on<AuthUploadProfileImageRequested>(_onAuthUploadProfileImageRequested);
   }
 
   Future<void> _onAuthCheckRequested(
@@ -85,6 +88,22 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthUnauthenticated());
     } catch (e) {
       emit(AuthError(e.toString().replaceAll('Exception: ', '')));
+    }
+  }
+
+  Future<void> _onAuthUploadProfileImageRequested(
+    AuthUploadProfileImageRequested event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(AuthImageUploading());
+
+    try {
+      final imageUrl = await _authRepository.uploadProfileImage(
+        event.imageFile,
+      );
+      emit(AuthImageUploadSuccess(imageUrl));
+    } catch (e) {
+      emit(AuthImageUploadError(e.toString().replaceAll('Exception: ', '')));
     }
   }
 }
