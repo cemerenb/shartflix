@@ -5,7 +5,9 @@ import 'package:shartflix/features/auth/bloc/auth_state.dart';
 import 'package:shartflix/features/auth/view/login_screen.dart';
 import 'package:shartflix/features/auth/view/register_screen.dart';
 import 'package:shartflix/features/auth/view/upload_photo_screen.dart';
-
+import 'package:shartflix/features/home/view/home_screen.dart';
+import 'package:shartflix/features/main/view/main_screen.dart';
+import 'package:shartflix/features/profile/view/profile_screen.dart';
 import 'package:shartflix/features/splash/splash_screen.dart';
 
 class AppRouter {
@@ -59,7 +61,6 @@ class AppRouter {
           builder: (context, state) => const UploadPhotoScreen(),
         ),
 
-        /*
         ShellRoute(
           navigatorKey: _shellNavigatorKey,
           builder: (context, state, child) => MainScreen(child: child),
@@ -73,7 +74,7 @@ class AppRouter {
               builder: (context, state) => const ProfileScreen(),
             ),
           ],
-        ),*/
+        ),
       ],
     );
   }
