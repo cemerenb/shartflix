@@ -70,38 +70,4 @@ class HomeRepository {
       throw NetworkException('Ağ bağlantısı kurulamadı.');
     }
   }
-
-  Future<List<Movie>> getFavorites(String movieId) async {
-    try {
-      final token = await StorageService.getToken();
-
-      final response = await _client.dio.get(
-        AppUrls.getFavorites,
-        options: Options(headers: {"Authorization": "Bearer $token"}),
-      );
-
-      if (response.statusCode != 200) {
-        throw ServerException('Favori işlenemedi ${response.statusMessage}');
-      } else {
-        final List<Movie> favoriteList = (response.data['data'] as List)
-            .map((movieJson) => Movie.fromJson(movieJson))
-            .toList();
-        if (favoriteList.isNotEmpty) {
-          return favoriteList;
-        } else {
-          throw ServerException('Favori işlenemedi ${response.statusMessage}');
-        }
-      }
-    } on DioException catch (e) {
-      if (e.response?.statusCode == 401) {
-        throw UnauthorizedException();
-      } else if (e.response?.statusCode == 400) {
-        throw UserAlreadyExistsException();
-      } else {
-        throw ServerException(e.message ?? 'Sunucu hatası');
-      }
-    } catch (e) {
-      throw NetworkException('Ağ bağlantısı kurulamadı.');
-    }
-  }
 }

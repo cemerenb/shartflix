@@ -7,6 +7,7 @@ class CustomTextField extends StatefulWidget {
   final String? iconAsset;
   final String? Function(String?)? validator;
   final TextInputType keyboardType;
+  final TextInputAction inputAction;
   final bool enabled;
 
   const CustomTextField({
@@ -15,6 +16,7 @@ class CustomTextField extends StatefulWidget {
     required this.label,
     this.iconAsset,
     this.validator,
+    this.inputAction = TextInputAction.done,
     this.keyboardType = TextInputType.text,
     this.enabled = true,
   });
@@ -57,6 +59,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       focusNode: _focusNode,
       enabled: widget.enabled,
       keyboardType: widget.keyboardType,
+      textInputAction: widget.inputAction,
       decoration: InputDecoration(
         labelText: widget.label,
         prefixIcon: widget.iconAsset == null

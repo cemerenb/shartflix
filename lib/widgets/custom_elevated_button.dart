@@ -26,8 +26,6 @@ class CustomElevatedButton extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return SizedBox(
       height: height,
       width: width,
@@ -35,17 +33,18 @@ class CustomElevatedButton extends StatelessWidget {
         onPressed: isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor ?? AppTheme.accentColor,
-          foregroundColor: textColor ?? theme.colorScheme.onPrimary,
+          foregroundColor: AppTheme.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
           ),
           padding:
               padding ??
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
         ),
         child: isLoading
-            ? const Padding(
-                padding: EdgeInsets.all(8.0),
+            ? SizedBox(
+                height: 20,
+                width: 20,
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.white),

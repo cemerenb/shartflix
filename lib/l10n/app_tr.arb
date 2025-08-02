@@ -1,60 +1,568 @@
 {
   "@@locale": "tr",
   "login": "Giriş Yap",
+  "@login": {
+    "description": "Giriş yap buton metni",
+    "type": "text"
+  },
   "loremIpsum": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
+  "@loremIpsum": {
+    "description": "Örnek açıklama yazısı",
+    "type": "text"
+  },
   "register": "Kayıt Ol",
+  "@register": {
+    "description": "Kayıt ol buton metni",
+    "type": "text"
+  },
   "email": "E-posta",
+  "@email": {
+    "description": "E-posta alan etiketi",
+    "type": "text"
+  },
   "password": "Şifre",
+  "@password": {
+    "description": "Şifre alan etiketi",
+    "type": "text"
+  },
   "confirmPassword": "Şifreyi Onayla",
+  "@confirmPassword": {
+    "description": "Şifre onay alan etiketi",
+    "type": "text"
+  },
   "name": "İsim",
+  "@name": {
+    "description": "İsim alan etiketi",
+    "type": "text"
+  },
   "loginButton": "Giriş Yap",
+  "@loginButton": {
+    "description": "Giriş yap buton etiketi",
+    "type": "text"
+  },
   "registerButton": "Kayıt Ol",
+  "@registerButton": {
+    "description": "Kayıt ol buton etiketi",
+    "type": "text"
+  },
   "dontHaveAccount": "Hesabınız yok mu?",
+  "@dontHaveAccount": {
+    "description": "Kayıt olmaya yönlendiren metin",
+    "type": "text"
+  },
   "alreadyHaveAccount": "Zaten hesabınız var mı?",
+  "@alreadyHaveAccount": {
+    "description": "Giriş yapmaya yönlendiren metin",
+    "type": "text"
+  },
   "loginSuccess": "Giriş başarılı",
+  "@loginSuccess": {
+    "description": "Başarılı giriş mesajı",
+    "type": "text"
+  },
   "registerSuccess": "Kayıt başarılı",
+  "@registerSuccess": {
+    "description": "Başarılı kayıt mesajı",
+    "type": "text"
+  },
   "loginError": "Giriş başarısız",
+  "@loginError": {
+    "description": "Giriş başarısız hata mesajı",
+    "type": "text"
+  },
   "registerError": "Kayıt başarısız",
+  "@registerError": {
+    "description": "Kayıt başarısız hata mesajı",
+    "type": "text"
+  },
   "emailRequired": "E-posta gerekli",
+  "@emailRequired": {
+    "description": "E-posta alanı zorunlu uyarısı",
+    "type": "text"
+  },
   "passwordRequired": "Şifre gerekli",
+  "@passwordRequired": {
+    "description": "Şifre alanı zorunlu uyarısı",
+    "type": "text"
+  },
   "nameRequired": "İsim gerekli",
+  "@nameRequired": {
+    "description": "İsim alanı zorunlu uyarısı",
+    "type": "text"
+  },
   "passwordsNotMatch": "Şifreler uyuşmuyor",
+  "@passwordsNotMatch": {
+    "description": "Şifre uyuşmazlık uyarısı",
+    "type": "text"
+  },
   "invalidEmail": "Geçersiz e-posta formatı",
+  "@invalidEmail": {
+    "description": "Geçersiz e-posta formatı uyarısı",
+    "type": "text"
+  },
   "home": "Ana Sayfa",
+  "@home": {
+    "description": "Ana sayfa başlığı",
+    "type": "text"
+  },
   "profile": "Profil",
+  "@profile": {
+    "description": "Profil başlığı",
+    "type": "text"
+  },
   "discover": "Keşfet",
+  "@discover": {
+    "description": "Keşfet sekmesi etiketi",
+    "type": "text"
+  },
   "favorites": "Favoriler",
+  "@favorites": {
+    "description": "Favoriler sekmesi etiketi",
+    "type": "text"
+  },
   "logout": "Çıkış Yap",
+  "@logout": {
+    "description": "Çıkış butonu metni",
+    "type": "text"
+  },
   "loading": "Yükleniyor...",
+  "@loading": {
+    "description": "Yükleme sırasında gösterilecek metin",
+    "type": "text"
+  },
   "welcome": "Merhabalar",
+  "@welcome": {
+    "description": "Karşılama metni",
+    "type": "text"
+  },
   "forgotPassword": "Şifremi Unuttum",
-"fullName": "Ad Soyad",
+  "@forgotPassword": {
+    "description": "Şifre unuttum bağlantı metni",
+    "type": "text"
+  },
+  "fullName": "Ad Soyad",
+  "@fullName": {
+    "description": "Ad soyad alan etiketi",
+    "type": "text"
+  },
   "pleaseEnterFullName": "Lütfen adınızı ve soyadınızı girin",
+  "@pleaseEnterFullName": {
+    "description": "Ad soyad girilmediğinde gösterilecek metin",
+    "type": "text"
+  },
   "iReadAndAgree": "Kullanıcı sözleşmesini ",
+  "@iReadAndAgree": {
+    "description": "Kullanıcı sözleşmesini kabul etme başlangıç metni",
+    "type": "text"
+  },
   "userAgreement": "okudum ve kabul ediyorum.",
+  "@userAgreement": {
+    "description": "Kullanıcı sözleşmesi onay metni",
+    "type": "text"
+  },
   "pleaseReadUserAgreement": "Bu sözleşmeyi okuyaral devam ediniz lütfen.",
-"checkRegisterFields" : "Lütfen alanları doğru şekilde doldurduğunuzdan emin olun",
-"uploadPhoto": "Fotoğraf Yükle",
+  "@pleaseReadUserAgreement": {
+    "description": "Kullanıcı sözleşmesini okumadan devam etmeyin uyarısı",
+    "type": "text"
+  },
+  "checkRegisterFields": "Lütfen alanları doğru şekilde doldurduğunuzdan emin olun",
+  "@checkRegisterFields": {
+    "description": "Kayıt alanları eksik uyarısı",
+    "type": "text"
+  },
+  "uploadPhoto": "Fotoğraf Yükle",
+  "@uploadPhoto": {
+    "description": "Fotoğraf yükleme butonu metni",
+    "type": "text"
+  },
   "profileDetail": "Profi Detayı",
-  "profileLoremIpsum" : "Resources out incentivize relaxation floor loss cc.",
+  "@profileDetail": {
+    "description": "Profil detay başlığı",
+    "type": "text"
+  },
+  "profileLoremIpsum": "Resources out incentivize relaxation floor loss cc.",
+  "@profileLoremIpsum": {
+    "description": "Profil ekranı örnek açıklama",
+    "type": "text"
+  },
   "continueText": "Devam Et",
+  "@continueText": {
+    "description": "Devam butonu metni",
+    "type": "text"
+  },
   "seeMore": "daha fazla",
+  "@seeMore": {
+    "description": "Devamını gör bağlantı metni",
+    "type": "text"
+  },
   "imdb": "IMDB",
+  "@imdb": {
+    "description": "IMDB etiketi",
+    "type": "text"
+  },
   "metascore": "Metascore",
+  "@metascore": {
+    "description": "Metascore etiketi",
+    "type": "text"
+  },
   "plot": "Konu",
+  "@plot": {
+    "description": "Filmin konusu başlığı",
+    "type": "text"
+  },
   "genre": "Tür",
+  "@genre": {
+    "description": "Film türü başlığı",
+    "type": "text"
+  },
   "director": "Yönetmen",
+  "@director": {
+    "description": "Yönetmen başlığı",
+    "type": "text"
+  },
   "actors": "Oyuncular",
+  "@actors": {
+    "description": "Oyuncular başlığı",
+    "type": "text"
+  },
   "writer": "Senaryo",
+  "@writer": {
+    "description": "Senarist başlığı",
+    "type": "text"
+  },
   "releaseDate": "Çıkış Tarihi",
+  "@releaseDate": {
+    "description": "Çıkış tarihi başlığı",
+    "type": "text"
+  },
   "language": "Dil",
+  "@language": {
+    "description": "Dil başlığı",
+    "type": "text"
+  },
   "country": "Ülke",
+  "@country": {
+    "description": "Ülke başlığı",
+    "type": "text"
+  },
   "awards": "Ödüller",
+  "@awards": {
+    "description": "Ödüller başlığı",
+    "type": "text"
+  },
   "imdbVotes": "IMDB Oyları",
-    "noMoviesFound": "Film Bulunamadı",
-    "retry": "Tekrar Dene",
-    "error": "Hata"
-    
+  "@imdbVotes": {
+    "description": "IMDB oy sayısı başlığı",
+    "type": "text"
+  },
+  "noMoviesFound": "Film Bulunamadı",
+  "@noMoviesFound": {
+    "description": "Film bulunamadı uyarı metni",
+    "type": "text"
+  },
+  "retry": "Tekrar Dene",
+  "@retry": {
+    "description": "Tekrar dene butonu metni",
+    "type": "text"
+  },
+  "error": "Hata",
+  "@error": {
+    "description": "Hata başlığı",
+    "type": "text"
+  },
+  "startAddFavorities": "Favorilerini eklemeye başla",
+  "@startAddFavorities": {
+    "description": "Favori eklemeye başla çağrısı",
+    "type": "text"
+  },
+  "settings": "Ayarlar",
+  "@settings": {
+    "description": "Ayarlar başlığı",
+    "type": "text"
+  },
+  "limitedOffer": "Sınırlı Teklif",
+  "@limitedOffer": {
+    "description": "Sınırlı teklif etiket",
+    "type": "text"
+  },
+  "myFavorities": "Favorilerim",
+  "@myFavorities": {
+    "description": "Kullanıcının favorileri başlığı",
+    "type": "text"
+  },
+  "seeAll": "Tümünü Gör",
+  "@seeAll": {
+    "description": "Tümünü gör buton metni",
+    "type": "text"
+  },
+  "sureToLogout": "Çıkış yapmak istediğinizden emin misiniz?",
+  "@sureToLogout": {
+    "description": "Çıkış onay sorusu",
+    "type": "text"
+  },
+  "cancel": "İptal",
+  "@cancel": {
+    "description": "İptal buton metni",
+    "type": "text"
+  },
+  "general": "Genel",
+  "@general": {
+    "description": "Genel ayarlar başlığı",
+    "type": "text"
+  },
+  "theme": "Tema",
+  "@theme": {
+    "description": "Tema başlığı",
+    "type": "text"
+  },
+  "application": "Uygulama",
+  "@application": {
+    "description": "Uygulama ayarları başlığı",
+    "type": "text"
+  },
+  "notification": "Bildirimler",
+  "@notification": {
+    "description": "Bildirim başlığı",
+    "type": "text"
+  },
+  "getNotification": "Yeni filmler ve güncellemeler hakkında bildirim al",
+  "@getNotification": {
+    "description": "Bildirim tercihi açıklaması",
+    "type": "text"
+  },
+  "data": "Veriler",
+  "@data": {
+    "description": "Veriler başlığı",
+    "type": "text"
+  },
+  "getData": "Verilerini indir",
+  "@getData": {
+    "description": "Veri indirme çağrısı",
+    "type": "text"
+  },
+  "dataSettingsSoon": "İndirme ayarları yakında",
+  "@dataSettingsSoon": {
+    "description": "Veri indirme ayarları gelecekte aktif olacak mesajı",
+    "type": "text"
+  },
+  "accountAndSecurity": "Hesap ve Güvenlik",
+  "@accountAndSecurity": {
+    "description": "Hesap ve güvenlik başlığı",
+    "type": "text"
+  },
+  "securitySettings": "Gizlilik Ayarları",
+  "@securitySettings": {
+    "description": "Gizlilik ayarları başlığı",
+    "type": "text"
+  },
+  "securitySettingsTest": "Gizlilik ve güvenlik seçenekleri",
+  "@securitySettingsTest": {
+    "description": "Test amaçlı gizlilik açıklaması",
+    "type": "text"
+  },
+  "securitySettingsSoon": "Gizlilik ayarları yakında!",
+  "@securitySettingsSoon": {
+    "description": "Yakında aktif olacak gizlilik ayarları açıklaması",
+    "type": "text"
+  },
+  "changePassword": "Şifre Değiştir",
+  "@changePassword": {
+    "description": "Şifre değiştirme başlığı",
+    "type": "text"
+  },
+  "changePasswordText": "Hesap şifreni güncelle",
+  "@changePasswordText": {
+    "description": "Şifre güncelleme açıklaması",
+    "type": "text"
+  },
+  "changePasswordSoon": "Şifre değiştirme yakında!",
+  "@changePasswordSoon": {
+    "description": "Şifre değiştirme özelliği henüz hazır değil mesajı",
+    "type": "text"
+  },
+  "help": "Destek ve Bilgi",
+  "@help": {
+    "description": "Yardım başlığı",
+    "type": "text"
+  },
+  "helpCenter": "Yardım Merkezi",
+  "@helpCenter": {
+    "description": "Yardım merkezi başlığı",
+    "type": "text"
+  },
+  "sss": "SSS ve Destek",
+  "@sss": {
+    "description": "Sıkça sorulan sorular ve destek başlığı",
+    "type": "text"
+  },
+  "helpCenterSoon": "Yardım merkezi yakında",
+  "@helpCenterSoon": {
+    "description": "Yakında aktif olacak yardım merkezi açıklaması",
+    "type": "text"
+  },
+  "userAgreementText": "Kullanıcı şartları ve koşulları",
+  "@userAgreementText": {
+    "description": "Kullanıcı sözleşmesi açıklaması",
+    "type": "text"
+  },
+  "privacyPolicy": "Gizlilik Politikası",
+  "@privacyPolicy": {
+    "description": "Gizlilik politikası başlığı",
+    "type": "text"
+  },
+  "kvkk": "Kişisel verilerin korunması",
+  "@kvkk": {
+    "description": "KVKK başlığı",
+    "type": "text"
+  },
+  "aboutApp": "Uygulama Hakkında",
+  "@aboutApp": {
+    "description": "Uygulama hakkında bilgi başlığı",
+    "type": "text"
+  },
+  "version": "Sürüm",
+  "@version": {
+    "description": "Uygulama sürüm numarası başlığı",
+    "type": "text"
+  },
+  "turkish": "Türkçe",
+  "@turkish": {
+    "description": "Türkçe dil seçeneği",
+    "type": "text"
+  },
+  "english": "İngilizce",
+  "@english": {
+    "description": "İngilizce dil seçeneği",
+    "type": "text"
+  },
+  "lightTheme": "Açık Tema",
+  "@lightTheme": {
+    "description": "Açık tema seçeneği",
+    "type": "text"
+  },
+  "darkTheme": "Koyu Tema",
+  "@darkTheme": {
+    "description": "Koyu tema seçeneği",
+    "type": "text"
+  },
+  "system": "Sistem",
+  "@system": {
+    "description": "Sistem varsayılan tema",
+    "type": "text"
+  },
+  "selectLanguage": "Dil Seçin",
+  "@selectLanguage": {
+    "description": "Dil seçim başlığı",
+    "type": "text"
+  },
+  "selectTheme": "Tema Seçin",
+  "@selectTheme": {
+    "description": "Tema seçim başlığı",
+    "type": "text"
+  },
+  "allRights": "Tüm Hakları Saklıdır.",
+  "@allRights": {
+    "description": "Telif hakkı metni",
+    "type": "text"
+  },
+  "close": "Kapat",
+  "@close": {
+    "description": "Kapat buton metni",
+    "type": "text"
+  },
+  "start": "Başla",
+  "@start": {
+    "description": "Başlatma butonu",
+    "type": "text"
+  },
+  "noFavorities": "Henüz Favori Film Eklemediniz",
+  "@noFavorities": {
+    "description": "Henüz favori yok mesajı",
+    "type": "text"
+  },
+  "movieNotFound": "Film bulunamadı",
+  "@movieNotFound": {
+    "description": "Aranan film bulunamadı mesajı",
+    "type": "text"
+  },
+  "photoUploadError": "Fotoğraf seçilirken bir hata oluştu",
+  "@photoUploadError": {
+    "description": "Fotoğraf yükleme sırasında oluşan hata",
+    "type": "text"
+  },
+   "photoUploadSuccess": "Fotoğraf başarıyla yüklendi",
+  "@photoUploadSuccess": {
+    "description": "Fotoğraf başarıyla yüklendi",
+    "type": "text"
+  },
+  "selectPhoto": "Fotoğraf Seç",
+  "@selectPhoto": {
+    "description": "Fotoğraf Seçici Text",
+    "type": "text"
+  },
+  "gallery": "Galeri",
+  "@gallery": {
+    "description": "Fotoğraf Seçici Text",
+    "type": "text"
+  },
+  "camera": "Kamera",
+  "@camera": {
+    "description": "Fotoğraf Seçici Text",
+    "type": "text"
+  },
+"sheetSubTitle": "Jeton paketini seçerek bonus\nkazanın ve yeni bölümlerin kilidini açın!",
+  "@sheetSubTitle": {
+    "description": "Jeton satın alma sayfası alt başlığı",
+    "type": "text"
+  },
+  "chooseToken": "Kilidi açmak için bir jeton paketi seçin",
+  "@chooseToken": {
+    "description": "Jeton seçimi yönlendirme metni",
+    "type": "text"
+  },
+  "buySoon": "Satın alma yakında",
+  "@buySoon": {
+    "description": "Satın alma işlemi henüz aktif değilken gösterilen metin",
+    "type": "text"
+  },
+  "seeAllToken": "Tüm Jetonları Gör",
+  "@seeAllToken": {
+    "description": "Tüm jeton paketlerini gör buton metni",
+    "type": "text"
+  },
+  "premiumAccount": "Premium\nHesap",
+  "@premiumAccount": {
+    "description": "Premium hesap etiketi",
+    "type": "text"
+  },
+  "moreMatch": "Daha\nFazla Eşleşme",
+  "@moreMatch": {
+    "description": "Daha fazla eşleşme etiketi",
+    "type": "text"
+  },
+  "boost": "Öne\nÇıkarma",
+  "@boost": {
+    "description": "Profil öne çıkarma etiketi",
+    "type": "text"
+  },
+  "moreLike": "Daha\nFazla Beğeni",
+  "@moreLike": {
+    "description": "Daha fazla beğeni etiketi",
+    "type": "text"
+  },
+  "weekly": "1 Hafta İçin",
+  "@weekly": {
+    "description": "1 haftalık üyelik etiketi",
+    "type": "text"
+  },
+  "jeton": "Token",
+  "@jeton": {
+    "description": "Token kelimesi",
+    "type": "text"
+  }
+  
+
 
 
 }
+

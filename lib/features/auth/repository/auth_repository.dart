@@ -64,8 +64,10 @@ class AuthRepository {
     } on DioException catch (e) {
       if (e.response?.statusCode == 401) {
         throw UnauthorizedException();
+      } else if (e.response?.statusCode == 400) {
+        throw "User already exists";
       } else {
-        throw ServerException(e.message ?? 'Sunucu hatası');
+        throw e.response!.data['response']['message'] ?? 'Sunucu hatası';
       }
     } catch (_) {
       throw NetworkException('Ağ bağlantısı kurulamadı.');
@@ -95,6 +97,42 @@ class AuthRepository {
       return null;
     } catch (e) {
       return null;
+    }
+  }
+
+  Future<UserModel> getProfile() async {
+    try {
+      final token = await StorageService.getToken();
+
+      if (token == null) {
+        throw Exception('Token bulunamadı');
+      }
+
+      final response = await _client.dio.get(
+        AppUrls.getUser,
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
+
+      if (response.statusCode == 200) {
+        final ApiResponse apiResponse = ApiResponse.fromJson(response.data);
+        final UserModel userModel = UserModel.fromJson(apiResponse.data);
+
+        await StorageService.saveUserData(jsonEncode(userModel));
+
+        return userModel;
+      } else {
+        throw ServerException(
+          'Profil bilgileri alınamadı: ${response.statusMessage}',
+        );
+      }
+    } on DioException catch (e) {
+      if (e.response?.statusCode == 401) {
+        throw UnauthorizedException();
+      } else {
+        throw ServerException(e.message ?? 'Sunucu hatası');
+      }
+    } catch (e) {
+      throw NetworkException('Ağ bağlantısı kurulamadı: $e');
     }
   }
 
@@ -134,22 +172,14 @@ class AuthRepository {
       });
 
       final response = await Dio().post(
-        'https://caseapi.servicelabs.tech/user/upload_photo',
+        AppUrls.uploadProfileImage,
         data: formData,
-        options: Options(
-          headers: {
-            'Authorization': 'Bearer $token',
-            // Content-Type manuel eklenmedi; Dio kendisi otomatik ayarlıyor.
-          },
-        ),
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
       );
 
       if (response.statusCode == 200) {
         final data = response.data;
-        return data['imageUrl'] ??
-            data['profileImageUrl'] ??
-            data['url'] ??
-            'Yükleme başarılı ama URL dönmedi.';
+        return data['data']['photoUrl'] ?? 'Yükleme başarılı ama URL dönmedi.';
       } else {
         throw Exception('Fotoğraf yüklenemedi: ${response.statusMessage}');
       }

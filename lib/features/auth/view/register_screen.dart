@@ -6,7 +6,6 @@ import 'package:shartflix/features/auth/view_model/auth_event.dart';
 import 'package:shartflix/features/auth/view_model/auth_state.dart';
 import 'package:shartflix/features/auth/widget/social_login.dart';
 import 'package:shartflix/features/auth/widget/user_agreement_text.dart';
-import 'package:shartflix/shared/theme/app_theme.dart';
 import 'package:shartflix/shared/utils/context/context_extensions.dart';
 import 'package:shartflix/shared/utils/snackbars/snackbars.dart';
 import 'package:shartflix/shared/utils/spacers/spacers.dart';
@@ -23,7 +22,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final GlobalKey<FormFieldState> _formKey = GlobalKey<FormFieldState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -61,7 +60,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthAuthenticated) {
-            context.go('/upload-photo');
+            state.user.photoUrl == ""
+                ? context.push('/upload-photo')
+                : context.go('/home');
           } else if (state is AuthError) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -170,8 +171,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     )
                                   : Text(
                                       context.l10n.register,
-                                      style: context.textTheme.bodyLarge
-                                          ?.copyWith(color: AppTheme.white),
+                                      style: context.textTheme.bodyLarge,
                                     ),
                             ),
                           ],

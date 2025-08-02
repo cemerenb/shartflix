@@ -169,4 +169,178 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get error => 'Error';
+
+  @override
+  String get startAddFavorities => 'Start adding your favorites';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get limitedOffer => 'Limited Offer';
+
+  @override
+  String get myFavorities => 'My Favorities';
+
+  @override
+  String get seeAll => 'See All';
+
+  @override
+  String get sureToLogout => 'Are you sure you want to logout?';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get general => 'General';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get application => 'Application';
+
+  @override
+  String get notification => 'Notifications';
+
+  @override
+  String get getNotification => 'Receive notifications about new movies and updates';
+
+  @override
+  String get data => 'Data';
+
+  @override
+  String get getData => 'Download your data';
+
+  @override
+  String get dataSettingsSoon => 'Download settings coming soon';
+
+  @override
+  String get accountAndSecurity => 'Account and Security';
+
+  @override
+  String get securitySettings => 'Privacy Settings';
+
+  @override
+  String get securitySettingsTest => 'Privacy and security options';
+
+  @override
+  String get securitySettingsSoon => 'Privacy settings coming soon!';
+
+  @override
+  String get changePassword => 'Change Password';
+
+  @override
+  String get changePasswordText => 'Update your account password';
+
+  @override
+  String get changePasswordSoon => 'Password change coming soon!';
+
+  @override
+  String get help => 'Support and Information';
+
+  @override
+  String get helpCenter => 'Help Center';
+
+  @override
+  String get sss => 'FAQs and Support';
+
+  @override
+  String get helpCenterSoon => 'Help center coming soon';
+
+  @override
+  String get userAgreementText => 'User terms and conditions';
+
+  @override
+  String get privacyPolicy => 'Privacy Policy';
+
+  @override
+  String get kvkk => 'Personal Data Protection';
+
+  @override
+  String get aboutApp => 'About the App';
+
+  @override
+  String get version => 'Version';
+
+  @override
+  String get turkish => 'Turkish';
+
+  @override
+  String get english => 'English';
+
+  @override
+  String get lightTheme => 'Light Theme';
+
+  @override
+  String get darkTheme => 'Dark Theme';
+
+  @override
+  String get system => 'System';
+
+  @override
+  String get selectLanguage => 'Select Language';
+
+  @override
+  String get selectTheme => 'Select Theme';
+
+  @override
+  String get allRights => 'All Rights Reserved.';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get start => 'Start';
+
+  @override
+  String get noFavorities => 'You haven\'t added a favorite movie yet';
+
+  @override
+  String get movieNotFound => 'Movie not found';
+
+  @override
+  String get photoUploadError => 'An error occurred while selecting the photo';
+
+  @override
+  String get photoUploadSuccess => 'Photo successfully uploaded';
+
+  @override
+  String get selectPhoto => 'Select Photo';
+
+  @override
+  String get gallery => 'Gallery';
+
+  @override
+  String get camera => 'Camera';
+
+  @override
+  String get sheetSubTitle => 'Select a token package to earn bonuses\nand unlock new episodes!';
+
+  @override
+  String get chooseToken => 'Choose a token package to unlock';
+
+  @override
+  String get buySoon => 'Purchase coming soon';
+
+  @override
+  String get seeAllToken => 'See All Tokens';
+
+  @override
+  String get premiumAccount => 'Premium\nAccount';
+
+  @override
+  String get moreMatch => 'More\nMatches';
+
+  @override
+  String get boost => 'Boost';
+
+  @override
+  String get moreLike => 'More\nLikes';
+
+  @override
+  String get weekly => 'For 1 Week';
+
+  @override
+  String get jeton => 'Token';
 }

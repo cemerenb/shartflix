@@ -7,11 +7,13 @@ class CustomPasswordField extends StatefulWidget {
   final String? iconAsset;
   final String? Function(String?)? validator;
   final bool enabled;
+  final VoidCallback? onEdittigComplete;
 
   const CustomPasswordField({
     super.key,
     required this.controller,
     required this.label,
+    this.onEdittigComplete,
     this.iconAsset,
     this.validator,
     this.enabled = true,
@@ -23,14 +25,19 @@ class CustomPasswordField extends StatefulWidget {
 
 class _CustomPasswordFieldState extends State<CustomPasswordField> {
   bool _obscureText = true;
+  final GlobalKey<FormFieldState> _formFieldKey = GlobalKey<FormFieldState>();
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      key: _formFieldKey,
       controller: widget.controller,
       obscureText: _obscureText,
       enabled: widget.enabled,
+      keyboardType: TextInputType.visiblePassword,
       validator: widget.validator,
+      onEditingComplete: widget.onEdittigComplete,
+
       decoration: InputDecoration(
         labelText: widget.label,
         prefixIcon: Padding(

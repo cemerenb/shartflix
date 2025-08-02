@@ -169,4 +169,178 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get error => 'Hata';
+
+  @override
+  String get startAddFavorities => 'Favorilerini eklemeye başla';
+
+  @override
+  String get settings => 'Ayarlar';
+
+  @override
+  String get limitedOffer => 'Sınırlı Teklif';
+
+  @override
+  String get myFavorities => 'Favorilerim';
+
+  @override
+  String get seeAll => 'Tümünü Gör';
+
+  @override
+  String get sureToLogout => 'Çıkış yapmak istediğinizden emin misiniz?';
+
+  @override
+  String get cancel => 'İptal';
+
+  @override
+  String get general => 'Genel';
+
+  @override
+  String get theme => 'Tema';
+
+  @override
+  String get application => 'Uygulama';
+
+  @override
+  String get notification => 'Bildirimler';
+
+  @override
+  String get getNotification => 'Yeni filmler ve güncellemeler hakkında bildirim al';
+
+  @override
+  String get data => 'Veriler';
+
+  @override
+  String get getData => 'Verilerini indir';
+
+  @override
+  String get dataSettingsSoon => 'İndirme ayarları yakında';
+
+  @override
+  String get accountAndSecurity => 'Hesap ve Güvenlik';
+
+  @override
+  String get securitySettings => 'Gizlilik Ayarları';
+
+  @override
+  String get securitySettingsTest => 'Gizlilik ve güvenlik seçenekleri';
+
+  @override
+  String get securitySettingsSoon => 'Gizlilik ayarları yakında!';
+
+  @override
+  String get changePassword => 'Şifre Değiştir';
+
+  @override
+  String get changePasswordText => 'Hesap şifreni güncelle';
+
+  @override
+  String get changePasswordSoon => 'Şifre değiştirme yakında!';
+
+  @override
+  String get help => 'Destek ve Bilgi';
+
+  @override
+  String get helpCenter => 'Yardım Merkezi';
+
+  @override
+  String get sss => 'SSS ve Destek';
+
+  @override
+  String get helpCenterSoon => 'Yardım merkezi yakında';
+
+  @override
+  String get userAgreementText => 'Kullanıcı şartları ve koşulları';
+
+  @override
+  String get privacyPolicy => 'Gizlilik Politikası';
+
+  @override
+  String get kvkk => 'Kişisel verilerin korunması';
+
+  @override
+  String get aboutApp => 'Uygulama Hakkında';
+
+  @override
+  String get version => 'Sürüm';
+
+  @override
+  String get turkish => 'Türkçe';
+
+  @override
+  String get english => 'İngilizce';
+
+  @override
+  String get lightTheme => 'Açık Tema';
+
+  @override
+  String get darkTheme => 'Koyu Tema';
+
+  @override
+  String get system => 'Sistem';
+
+  @override
+  String get selectLanguage => 'Dil Seçin';
+
+  @override
+  String get selectTheme => 'Tema Seçin';
+
+  @override
+  String get allRights => 'Tüm Hakları Saklıdır.';
+
+  @override
+  String get close => 'Kapat';
+
+  @override
+  String get start => 'Başla';
+
+  @override
+  String get noFavorities => 'Henüz Favori Film Eklemediniz';
+
+  @override
+  String get movieNotFound => 'Film bulunamadı';
+
+  @override
+  String get photoUploadError => 'Fotoğraf seçilirken bir hata oluştu';
+
+  @override
+  String get photoUploadSuccess => 'Fotoğraf başarıyla yüklendi';
+
+  @override
+  String get selectPhoto => 'Fotoğraf Seç';
+
+  @override
+  String get gallery => 'Galeri';
+
+  @override
+  String get camera => 'Kamera';
+
+  @override
+  String get sheetSubTitle => 'Jeton paketini seçerek bonus\nkazanın ve yeni bölümlerin kilidini açın!';
+
+  @override
+  String get chooseToken => 'Kilidi açmak için bir jeton paketi seçin';
+
+  @override
+  String get buySoon => 'Satın alma yakında';
+
+  @override
+  String get seeAllToken => 'Tüm Jetonları Gör';
+
+  @override
+  String get premiumAccount => 'Premium\nHesap';
+
+  @override
+  String get moreMatch => 'Daha\nFazla Eşleşme';
+
+  @override
+  String get boost => 'Öne\nÇıkarma';
+
+  @override
+  String get moreLike => 'Daha\nFazla Beğeni';
+
+  @override
+  String get weekly => '1 Hafta İçin';
+
+  @override
+  String get jeton => 'Token';
 }

@@ -7,14 +7,14 @@ Positioned buildBottomGradient(BuildContext context) {
     left: 0,
     right: 0,
     child: Container(
-      height: context.screenHeight * 0.4,
+      height: context.screenHeight * 0.2,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
           colors: [
             const Color.fromARGB(255, 0, 0, 0),
-            Color.fromARGB(150, 0, 0, 0),
+            Color.fromARGB(190, 0, 0, 0),
 
             Color.fromARGB(0, 0, 0, 0),
           ],

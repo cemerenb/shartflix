@@ -1,9 +1,9 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shartflix/shared/utils/context/context_extensions.dart';
+import 'package:shartflix/shared/utils/snackbars/snackbars.dart';
 
 Future<void> showImagePickerBottomSheet(
   BuildContext context,
@@ -30,7 +30,10 @@ Future<void> showImagePickerBottomSheet(
               ),
             ),
             const SizedBox(height: 20),
-            Text('Fotoğraf Seç', style: context.textTheme.headlineSmall),
+            Text(
+              context.l10n.selectPhoto,
+              style: context.textTheme.headlineSmall,
+            ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -38,7 +41,7 @@ Future<void> showImagePickerBottomSheet(
                 buildPickerOption(
                   context: context,
                   icon: Icons.camera_alt,
-                  label: 'Kamera',
+                  label: context.l10n.camera,
                   onTap: () => pickImage(
                     context,
                     ImageSource.camera,
@@ -49,7 +52,7 @@ Future<void> showImagePickerBottomSheet(
                 buildPickerOption(
                   context: context,
                   icon: Icons.photo_library,
-                  label: 'Galeri',
+                  label: context.l10n.gallery,
                   onTap: () => pickImage(
                     context,
                     ImageSource.gallery,
@@ -107,14 +110,16 @@ Future<void> pickImage(
       imageQuality: 85,
     );
 
-    if (image != null) {
+    if (image != null && context.mounted) {
       onSelected(File(image.path));
       Navigator.pop(context);
     }
   } catch (e) {
-    log('Fotoğraf seçme hatası: $e');
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Fotoğraf seçilirken bir hata oluştu')),
-    );
+    if (context.mounted) {
+      CustomSnackbar.errorSnackbar(
+        context: context,
+        message: context.l10n.photoUploadError,
+      );
+    }
   }
 }

@@ -37,11 +37,11 @@ class AppTheme {
       ),
       scaffoldBackgroundColor: darkBackgroundColor,
       appBarTheme: const AppBarTheme(
-        backgroundColor: primaryColor,
+        backgroundColor: darkBackgroundColor,
         foregroundColor: darkTextColor,
-        elevation: 0,
         centerTitle: true,
       ),
+      progressIndicatorTheme: ProgressIndicatorThemeData(color: darkTextColor),
       iconButtonTheme: IconButtonThemeData(
         style: IconButton.styleFrom(
           backgroundColor: darkSurfaceColor,
@@ -120,7 +120,7 @@ class AppTheme {
       colorScheme: const ColorScheme.light(
         primary: primaryColor,
         secondary: accentColor,
-        surface: lightSurfaceColor,
+        surface: Color.fromARGB(255, 234, 234, 234),
         onPrimary: lightTextColor,
         onSecondary: lightTextColor,
         onSurface: lightTextColor,
@@ -128,11 +128,11 @@ class AppTheme {
       ),
       scaffoldBackgroundColor: lightBackgroundColor,
       appBarTheme: const AppBarTheme(
-        backgroundColor: lightSurfaceColor,
+        backgroundColor: lightBackgroundColor,
         foregroundColor: lightTextColor,
-        elevation: 1,
         centerTitle: true,
       ),
+      progressIndicatorTheme: ProgressIndicatorThemeData(color: lightTextColor),
       iconTheme: IconThemeData(color: lightTextColor),
       iconButtonTheme: IconButtonThemeData(
         style: IconButton.styleFrom(

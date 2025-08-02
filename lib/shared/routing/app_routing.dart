@@ -5,9 +5,11 @@ import 'package:shartflix/features/auth/view_model/auth_state.dart';
 import 'package:shartflix/features/auth/view/login_screen.dart';
 import 'package:shartflix/features/auth/view/register_screen.dart';
 import 'package:shartflix/features/auth/view/upload_photo_screen.dart';
+import 'package:shartflix/features/favorities/view/favorities_screen.dart';
 import 'package:shartflix/features/home/view/home_screen.dart';
 import 'package:shartflix/features/main/view/main_screen.dart';
 import 'package:shartflix/features/profile/view/profile_screen.dart';
+import 'package:shartflix/features/settings/view/settings.dart';
 import 'package:shartflix/features/splash/splash_screen.dart';
 
 class AppRouter {
@@ -24,8 +26,7 @@ class AppRouter {
         final authState = authBloc.state;
         final isOnAuthPage =
             state.matchedLocation == '/login' ||
-            state.matchedLocation == '/register' ||
-            state.matchedLocation == '/upload-photo';
+            state.matchedLocation == '/register';
         final isOnSplash = state.matchedLocation == '/splash';
 
         // Splash ekranındayken yönlendirme yapma
@@ -33,8 +34,7 @@ class AppRouter {
 
         if (authState is AuthAuthenticated &&
             isOnAuthPage &&
-            state.matchedLocation != '/register' &&
-            state.matchedLocation != '/upload-photo') {
+            state.matchedLocation != '/register') {
           return '/home';
         }
 
@@ -61,6 +61,14 @@ class AppRouter {
         GoRoute(
           path: '/upload-photo',
           builder: (context, state) => const UploadPhotoScreen(),
+        ),
+        GoRoute(
+          path: '/settings',
+          builder: (context, state) => const SettingsScreen(),
+        ),
+        GoRoute(
+          path: '/favorities',
+          builder: (context, state) => const FavoritiesScreen(),
         ),
 
         ShellRoute(

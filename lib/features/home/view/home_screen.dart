@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shartflix/features/auth/view_model/auth_bloc.dart';
 import 'package:shartflix/features/auth/view_model/auth_state.dart';
 import 'package:shartflix/features/home/model/movie_model.dart';
-import 'package:shartflix/features/home/view/favorite_button.dart';
+import 'package:shartflix/features/home/widget/favorite_button.dart';
 import 'package:shartflix/features/home/view_model/home_bloc.dart';
 import 'package:shartflix/features/home/view_model/home_event.dart';
 import 'package:shartflix/features/home/view_model/home_state.dart';
@@ -156,7 +156,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         buildMovieInfo(context, movieState.movies[movieIndex]),
                         buildFavoriteButton(
                           context,
-                          movieState.movies[movieIndex],
+                          movieState.movies[movieIndex].id,
+                          context.screenHeight * 0.25,
+                          movie,
+                          FavoriteButtonContext.home,
                         ),
 
                         if (movieState.isLoadingMore)

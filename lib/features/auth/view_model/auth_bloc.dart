@@ -1,8 +1,6 @@
-import 'dart:io';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shartflix/features/auth/model/login_parameter.dart';
 import 'package:shartflix/features/auth/model/register_paarameter.dart';
-import 'package:shartflix/features/auth/model/user_model.dart';
 import 'package:shartflix/features/auth/repository/auth_repository.dart';
 import 'auth_event.dart';
 import 'auth_state.dart';
@@ -95,14 +93,26 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     AuthUploadProfileImageRequested event,
     Emitter<AuthState> emit,
   ) async {
-    emit(AuthImageUploading());
+    // Mevcut kullanıcı bilgilerini al
+    final currentState = state;
+    if (currentState is! AuthAuthenticated) {
+      emit(AuthImageUploadError('Kullanıcı girişi yapılmamış'));
+      return;
+    }
 
     try {
+      emit(AuthImageUploading()); // Loading state
+
       final imageUrl = await _authRepository.uploadProfileImage(
         event.imageFile,
       );
+
       emit(AuthImageUploadSuccess(imageUrl));
+
+      final updatedUser = await _authRepository.getProfile();
+      emit(AuthAuthenticated(updatedUser));
     } catch (e) {
+      emit(AuthAuthenticated(currentState.user));
       emit(AuthImageUploadError(e.toString().replaceAll('Exception: ', '')));
     }
   }

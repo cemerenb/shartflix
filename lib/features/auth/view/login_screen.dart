@@ -5,7 +5,6 @@ import 'package:shartflix/features/auth/view_model/auth_bloc.dart';
 import 'package:shartflix/features/auth/view_model/auth_event.dart';
 import 'package:shartflix/features/auth/view_model/auth_state.dart';
 import 'package:shartflix/features/auth/widget/social_login.dart';
-import 'package:shartflix/shared/theme/app_theme.dart';
 import 'package:shartflix/shared/utils/context/context_extensions.dart';
 import 'package:shartflix/shared/utils/spacers/spacers.dart';
 import 'package:shartflix/shared/utils/validators/validator.dart';
@@ -98,6 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             CustomTextField(
                               controller: _emailController,
                               label: context.l10n.email,
+                              keyboardType: TextInputType.emailAddress,
                               iconAsset: 'assets/icon/email.png',
                               validator: (p0) {
                                 return Validators.email(
@@ -105,18 +105,21 @@ class _LoginScreenState extends State<LoginScreen> {
                                   _emailController.text.trim(),
                                 );
                               },
+                              inputAction: TextInputAction.next,
                             ),
                             Spacers.extraLarge,
                             CustomPasswordField(
                               controller: _passwordController,
                               label: context.l10n.password,
                               iconAsset: "assets/icon/password.png",
+
                               validator: (p0) {
                                 return Validators.password(
                                   _passwordController.text,
                                   context,
                                 );
                               },
+                              onEdittigComplete: isLoading ? null : _login,
                             ),
                             Spacers.extraLarge,
                             Row(
@@ -143,8 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     )
                                   : Text(
                                       context.l10n.loginButton,
-                                      style: context.textTheme.bodyLarge
-                                          ?.copyWith(color: AppTheme.white),
+                                      style: context.textTheme.bodyLarge,
                                     ),
                             ),
                           ],

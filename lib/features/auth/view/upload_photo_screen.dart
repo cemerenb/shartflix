@@ -7,8 +7,8 @@ import 'package:shartflix/features/auth/view_model/auth_bloc.dart';
 import 'package:shartflix/features/auth/view_model/auth_event.dart';
 import 'package:shartflix/features/auth/view_model/auth_state.dart';
 import 'package:shartflix/features/auth/widget/image_picker_sheet.dart';
-import 'package:shartflix/shared/theme/app_theme.dart';
 import 'package:shartflix/shared/utils/context/context_extensions.dart';
+import 'package:shartflix/shared/utils/snackbars/snackbars.dart';
 import 'package:shartflix/widgets/custom_app_bar.dart';
 import 'package:shartflix/widgets/custom_container.dart';
 import 'package:shartflix/widgets/custom_elevated_button.dart';
@@ -23,7 +23,20 @@ class UploadPhotoScreen extends StatefulWidget {
 class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
   File? _selectedImage;
   final ImagePicker picker = ImagePicker();
-  bool isloading = false;
+  bool _isUploading = false;
+  bool _initialHasPhoto = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    final authState = context.read<AuthBloc>().state;
+    if (authState is AuthAuthenticated) {
+      final hasPhoto = authState.user.photoUrl?.isNotEmpty == true;
+
+      _initialHasPhoto = hasPhoto;
+    }
+  }
 
   Future<void> _uploadImage() async {
     if (_selectedImage == null) {
@@ -32,6 +45,10 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
       );
       return;
     }
+
+    setState(() {
+      _isUploading = true;
+    });
 
     context.read<AuthBloc>().add(
       AuthUploadProfileImageRequested(imageFile: _selectedImage!),
@@ -42,15 +59,38 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
-        if (state is AuthImageUploadSuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Fotoğraf başarıyla yüklendi!'),
-              backgroundColor: Colors.green,
-            ),
+        if (state is AuthAuthenticated && _isUploading) {
+          setState(() {
+            _isUploading = false;
+          });
+
+          CustomSnackbar.successSnackbar(
+            context: context,
+            message: context.l10n.photoUploadSuccess,
           );
-          context.go('/home');
-        } else if (state is AuthImageUploadError) {
+
+          context.read<AuthBloc>().add(AuthCheckRequested());
+
+          if (_initialHasPhoto) {
+            context.pop();
+          } else {
+            context.go('/home');
+          }
+        }
+
+        if (state is AuthImageUploadError) {
+          setState(() {
+            _isUploading = false;
+          });
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(state.message), backgroundColor: Colors.red),
+          );
+        }
+
+        if (state is AuthImageUploadError) {
+          setState(() {
+            _isUploading = false;
+          });
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(state.message), backgroundColor: Colors.red),
           );
@@ -63,7 +103,7 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
           appBar: CustomAppBar(
             title: context.l10n.profileDetail,
             leading: IconButton(
-              onPressed: () => GoRouterHelper(context).pop(),
+              onPressed: () => context.pop(),
               icon: const Icon(Icons.arrow_back_rounded),
             ),
           ),
@@ -130,9 +170,7 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
                       onPressed: isLoading ? null : _uploadImage,
                       child: Text(
                         context.l10n.continueText,
-                        style: context.textTheme.bodyLarge?.copyWith(
-                          color: AppTheme.white,
-                        ),
+                        style: context.textTheme.bodyLarge,
                       ),
                     ),
                   ),

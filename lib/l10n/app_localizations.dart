@@ -418,6 +418,354 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Error'**
   String get error;
+
+  /// No description provided for @startAddFavorities.
+  ///
+  /// In en, this message translates to:
+  /// **'Start adding your favorites'**
+  String get startAddFavorities;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @limitedOffer.
+  ///
+  /// In en, this message translates to:
+  /// **'Limited Offer'**
+  String get limitedOffer;
+
+  /// No description provided for @myFavorities.
+  ///
+  /// In en, this message translates to:
+  /// **'My Favorities'**
+  String get myFavorities;
+
+  /// No description provided for @seeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See All'**
+  String get seeAll;
+
+  /// No description provided for @sureToLogout.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to logout?'**
+  String get sureToLogout;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @general.
+  ///
+  /// In en, this message translates to:
+  /// **'General'**
+  String get general;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @application.
+  ///
+  /// In en, this message translates to:
+  /// **'Application'**
+  String get application;
+
+  /// No description provided for @notification.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notification;
+
+  /// No description provided for @getNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive notifications about new movies and updates'**
+  String get getNotification;
+
+  /// No description provided for @data.
+  ///
+  /// In en, this message translates to:
+  /// **'Data'**
+  String get data;
+
+  /// No description provided for @getData.
+  ///
+  /// In en, this message translates to:
+  /// **'Download your data'**
+  String get getData;
+
+  /// No description provided for @dataSettingsSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Download settings coming soon'**
+  String get dataSettingsSoon;
+
+  /// No description provided for @accountAndSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Account and Security'**
+  String get accountAndSecurity;
+
+  /// No description provided for @securitySettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Settings'**
+  String get securitySettings;
+
+  /// No description provided for @securitySettingsTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy and security options'**
+  String get securitySettingsTest;
+
+  /// No description provided for @securitySettingsSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy settings coming soon!'**
+  String get securitySettingsSoon;
+
+  /// No description provided for @changePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Password'**
+  String get changePassword;
+
+  /// No description provided for @changePasswordText.
+  ///
+  /// In en, this message translates to:
+  /// **'Update your account password'**
+  String get changePasswordText;
+
+  /// No description provided for @changePasswordSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Password change coming soon!'**
+  String get changePasswordSoon;
+
+  /// No description provided for @help.
+  ///
+  /// In en, this message translates to:
+  /// **'Support and Information'**
+  String get help;
+
+  /// No description provided for @helpCenter.
+  ///
+  /// In en, this message translates to:
+  /// **'Help Center'**
+  String get helpCenter;
+
+  /// No description provided for @sss.
+  ///
+  /// In en, this message translates to:
+  /// **'FAQs and Support'**
+  String get sss;
+
+  /// No description provided for @helpCenterSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Help center coming soon'**
+  String get helpCenterSoon;
+
+  /// No description provided for @userAgreementText.
+  ///
+  /// In en, this message translates to:
+  /// **'User terms and conditions'**
+  String get userAgreementText;
+
+  /// No description provided for @privacyPolicy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get privacyPolicy;
+
+  /// No description provided for @kvkk.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Data Protection'**
+  String get kvkk;
+
+  /// No description provided for @aboutApp.
+  ///
+  /// In en, this message translates to:
+  /// **'About the App'**
+  String get aboutApp;
+
+  /// No description provided for @version.
+  ///
+  /// In en, this message translates to:
+  /// **'Version'**
+  String get version;
+
+  /// No description provided for @turkish.
+  ///
+  /// In en, this message translates to:
+  /// **'Turkish'**
+  String get turkish;
+
+  /// No description provided for @english.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get english;
+
+  /// No description provided for @lightTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Light Theme'**
+  String get lightTheme;
+
+  /// No description provided for @darkTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Theme'**
+  String get darkTheme;
+
+  /// No description provided for @system.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get system;
+
+  /// No description provided for @selectLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Language'**
+  String get selectLanguage;
+
+  /// No description provided for @selectTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Theme'**
+  String get selectTheme;
+
+  /// No description provided for @allRights.
+  ///
+  /// In en, this message translates to:
+  /// **'All Rights Reserved.'**
+  String get allRights;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @start.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get start;
+
+  /// No description provided for @noFavorities.
+  ///
+  /// In en, this message translates to:
+  /// **'You haven\'t added a favorite movie yet'**
+  String get noFavorities;
+
+  /// No description provided for @movieNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Movie not found'**
+  String get movieNotFound;
+
+  /// No description provided for @photoUploadError.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred while selecting the photo'**
+  String get photoUploadError;
+
+  /// Fotoğraf başarıyla yüklendi
+  ///
+  /// In en, this message translates to:
+  /// **'Photo successfully uploaded'**
+  String get photoUploadSuccess;
+
+  /// Photo Picker Text
+  ///
+  /// In en, this message translates to:
+  /// **'Select Photo'**
+  String get selectPhoto;
+
+  /// Photo Picker Text
+  ///
+  /// In en, this message translates to:
+  /// **'Gallery'**
+  String get gallery;
+
+  /// Photo Picker Text
+  ///
+  /// In en, this message translates to:
+  /// **'Camera'**
+  String get camera;
+
+  /// Subtitle on token purchase sheet
+  ///
+  /// In en, this message translates to:
+  /// **'Select a token package to earn bonuses\nand unlock new episodes!'**
+  String get sheetSubTitle;
+
+  /// Prompt to select a token
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a token package to unlock'**
+  String get chooseToken;
+
+  /// Shown when purchase is not available yet
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase coming soon'**
+  String get buySoon;
+
+  /// Button text to view all token packages
+  ///
+  /// In en, this message translates to:
+  /// **'See All Tokens'**
+  String get seeAllToken;
+
+  /// Premium account label
+  ///
+  /// In en, this message translates to:
+  /// **'Premium\nAccount'**
+  String get premiumAccount;
+
+  /// More matches label
+  ///
+  /// In en, this message translates to:
+  /// **'More\nMatches'**
+  String get moreMatch;
+
+  /// Profile boost label
+  ///
+  /// In en, this message translates to:
+  /// **'Boost'**
+  String get boost;
+
+  /// More likes label
+  ///
+  /// In en, this message translates to:
+  /// **'More\nLikes'**
+  String get moreLike;
+
+  /// Label for 1-week membership
+  ///
+  /// In en, this message translates to:
+  /// **'For 1 Week'**
+  String get weekly;
+
+  /// Word for token
+  ///
+  /// In en, this message translates to:
+  /// **'Token'**
+  String get jeton;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

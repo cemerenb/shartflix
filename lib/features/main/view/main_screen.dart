@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shartflix/features/sheet/view_model/sheet_bloc.dart';
+import 'package:shartflix/features/sheet/view_model/sheet_event.dart';
+import 'package:shartflix/features/sheet/view_model/sheet_state.dart';
 import 'package:shartflix/shared/theme/app_theme.dart';
 import 'package:shartflix/shared/utils/context/context_extensions.dart';
 import 'package:shartflix/shared/utils/spacers/spacers.dart';
@@ -18,55 +22,75 @@ class MainScreen extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [
-          // Sayfa içeriği, alt taraftan biraz padding ile yukarı çekildi
           child,
 
-          // Yüzen bottom navigation bar
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            height: bottomNavHeight,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                // istersen gölge ekleyebilirsin:
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: Offset(0, -2),
+          BlocBuilder<SheetBloc, SheetState>(
+            builder: (context, state) {
+              if (state is SheetVisible) {
+                return Positioned.fill(
+                  child: Container(
+                    color: Colors.black54,
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: state.sheet,
+                    ),
                   ),
-                ],
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
-                  vertical: 10,
-                ),
-                child: Row(
-                  children: [
-                    Spacers.horizontalExtraLarge,
-                    _buildNavItem(
-                      context,
-                      index: 0,
-                      icon: "assets/icon/home.png",
-                      label: context.l10n.home,
-                      isSelected: currentIndex == 0,
+                );
+              }
+              return const SizedBox.shrink();
+            },
+          ),
+
+          BlocBuilder<SheetBloc, SheetState>(
+            builder: (context, state) {
+              if (state is SheetVisible) return const SizedBox.shrink();
+
+              return Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                height: bottomNavHeight,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 10,
+                        offset: const Offset(0, -2),
+                      ),
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 10,
                     ),
-                    Spacers.horizontalExtraLarge,
-                    _buildNavItem(
-                      context,
-                      index: 1,
-                      icon: "assets/icon/person_home.png",
-                      label: context.l10n.profile,
-                      isSelected: currentIndex == 1,
+                    child: Row(
+                      children: [
+                        Spacers.horizontalExtraLarge,
+                        _buildNavItem(
+                          context,
+                          index: 0,
+                          icon: "assets/icon/home.png",
+                          label: context.l10n.home,
+                          isSelected: currentIndex == 0,
+                        ),
+                        Spacers.horizontalExtraLarge,
+                        _buildNavItem(
+                          context,
+                          index: 1,
+                          icon: "assets/icon/person_home.png",
+                          label: context.l10n.profile,
+                          isSelected: currentIndex == 1,
+                        ),
+                        Spacers.horizontalExtraLarge,
+                      ],
                     ),
-                    Spacers.horizontalExtraLarge,
-                  ],
+                  ),
                 ),
-              ),
-            ),
+              );
+            },
           ),
         ],
       ),
@@ -86,21 +110,19 @@ class MainScreen extends StatelessWidget {
     Color textColor;
 
     if (isSelected) {
-      if (brightness == Brightness.light) {
-        backgroundColor = AppTheme.accentColor;
-        textColor = AppTheme.white;
-      } else {
-        backgroundColor = AppTheme.white;
-        textColor = AppTheme.black;
-      }
+      backgroundColor = brightness == Brightness.light
+          ? AppTheme.accentColor
+          : AppTheme.white;
+      textColor = brightness == Brightness.light
+          ? AppTheme.white
+          : AppTheme.black;
     } else {
-      if (brightness == Brightness.light) {
-        backgroundColor = AppTheme.white;
-        textColor = AppTheme.black;
-      } else {
-        backgroundColor = AppTheme.black;
-        textColor = AppTheme.white;
-      }
+      backgroundColor = brightness == Brightness.light
+          ? AppTheme.white
+          : AppTheme.black;
+      textColor = brightness == Brightness.light
+          ? AppTheme.black
+          : AppTheme.white;
     }
 
     return Expanded(

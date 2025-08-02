@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shartflix/features/home/model/movie_model.dart';
+import 'package:shartflix/features/home/widget/favorite_button.dart';
 import 'package:shartflix/features/home/widget/movie_detail_dialog.dart';
 import 'package:shartflix/shared/theme/app_theme.dart';
 import 'package:shartflix/shared/utils/context/context_extensions.dart';
@@ -19,7 +20,11 @@ Positioned buildMovieInfo(BuildContext context, Movie movie) {
         children: [
           GestureDetector(
             onTap: () {
-              showMovieDetailDialog(context, movie);
+              showMovieDetailDialog(
+                context,
+                movie.id,
+                FavoriteButtonContext.home,
+              );
             },
             child: Text(
               movie.title,
@@ -74,7 +79,11 @@ Positioned buildMovieInfo(BuildContext context, Movie movie) {
                             WidgetSpan(
                               child: GestureDetector(
                                 onTap: () {
-                                  showMovieDetailDialog(context, movie);
+                                  showMovieDetailDialog(
+                                    context,
+                                    movie.id,
+                                    FavoriteButtonContext.home,
+                                  );
                                 },
                                 child: Text(
                                   context.l10n.seeMore,
