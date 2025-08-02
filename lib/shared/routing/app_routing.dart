@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shartflix/features/auth/bloc/auth_bloc.dart';
-import 'package:shartflix/features/auth/bloc/auth_state.dart';
+import 'package:shartflix/features/auth/view_model/auth_bloc.dart';
+import 'package:shartflix/features/auth/view_model/auth_state.dart';
 import 'package:shartflix/features/auth/view/login_screen.dart';
 import 'package:shartflix/features/auth/view/register_screen.dart';
 import 'package:shartflix/features/auth/view/upload_photo_screen.dart';
@@ -11,8 +11,10 @@ import 'package:shartflix/features/profile/view/profile_screen.dart';
 import 'package:shartflix/features/splash/splash_screen.dart';
 
 class AppRouter {
-  static final _rootNavigatorKey = GlobalKey<NavigatorState>();
-  static final _shellNavigatorKey = GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> _rootNavigatorKey =
+      GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> _shellNavigatorKey =
+      GlobalKey<NavigatorState>();
 
   static GoRouter router(AuthBloc authBloc) {
     return GoRouter(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shartflix/features/auth/bloc/auth_bloc.dart';
-import 'package:shartflix/features/auth/bloc/auth_event.dart';
-import 'package:shartflix/features/auth/bloc/auth_state.dart';
+import 'package:shartflix/features/auth/view_model/auth_bloc.dart';
+import 'package:shartflix/features/auth/view_model/auth_event.dart';
+import 'package:shartflix/features/auth/view_model/auth_state.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen>
           } else if (state is AuthUnauthenticated) {
             Future.delayed(const Duration(milliseconds: 500), () {
               if (context.mounted) {
-                context.go('/login');
+                context.go('/home'); //TODO
               }
             });
           }

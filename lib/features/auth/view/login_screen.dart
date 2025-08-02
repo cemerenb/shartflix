@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shartflix/features/auth/bloc/auth_bloc.dart';
-import 'package:shartflix/features/auth/bloc/auth_event.dart';
-import 'package:shartflix/features/auth/bloc/auth_state.dart';
+import 'package:shartflix/features/auth/view_model/auth_bloc.dart';
+import 'package:shartflix/features/auth/view_model/auth_event.dart';
+import 'package:shartflix/features/auth/view_model/auth_state.dart';
 import 'package:shartflix/features/auth/widget/social_login.dart';
+import 'package:shartflix/shared/theme/app_theme.dart';
 import 'package:shartflix/shared/utils/context/context_extensions.dart';
 import 'package:shartflix/shared/utils/spacers/spacers.dart';
 import 'package:shartflix/shared/utils/validators/validator.dart';
@@ -20,7 +21,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -97,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             CustomTextField(
                               controller: _emailController,
                               label: context.l10n.email,
-                              icon: Image.asset('assets/icon/email.png'),
+                              iconAsset: 'assets/icon/email.png',
                               validator: (p0) {
                                 return Validators.email(
                                   context,
@@ -109,6 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             CustomPasswordField(
                               controller: _passwordController,
                               label: context.l10n.password,
+                              iconAsset: "assets/icon/password.png",
                               validator: (p0) {
                                 return Validators.password(
                                   _passwordController.text,
@@ -142,9 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   : Text(
                                       context.l10n.loginButton,
                                       style: context.textTheme.bodyLarge
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                          ?.copyWith(color: AppTheme.white),
                                     ),
                             ),
                           ],

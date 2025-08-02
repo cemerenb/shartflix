@@ -12,7 +12,4 @@ extension ContextExtensions on BuildContext {
   double get screenWidth => MediaQuery.of(this).size.width;
   double get screenHeight => MediaQuery.of(this).size.height;
   EdgeInsets get padding => MediaQuery.of(this).padding;
-
-  void pop<T>([T? result]) => Navigator.of(this).pop(result);
-  Future<T?> push<T>(Route<T> route) => Navigator.of(this).push(route);
 }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shartflix/features/auth/bloc/auth_bloc.dart';
-import 'package:shartflix/features/auth/bloc/auth_event.dart';
-import 'package:shartflix/features/auth/bloc/auth_state.dart';
+import 'package:shartflix/features/auth/view_model/auth_bloc.dart';
+import 'package:shartflix/features/auth/view_model/auth_event.dart';
+import 'package:shartflix/features/auth/view_model/auth_state.dart';
 import 'package:shartflix/features/auth/widget/social_login.dart';
 import 'package:shartflix/features/auth/widget/user_agreement_text.dart';
+import 'package:shartflix/shared/theme/app_theme.dart';
 import 'package:shartflix/shared/utils/context/context_extensions.dart';
 import 'package:shartflix/shared/utils/snackbars/snackbars.dart';
 import 'package:shartflix/shared/utils/spacers/spacers.dart';
@@ -22,7 +23,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final _formKey2 = GlobalKey<FormState>();
+  final GlobalKey<FormFieldState> _formKey = GlobalKey<FormFieldState>();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -38,7 +39,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   void _register() async {
-    if (_formKey2.currentState!.validate()) {
+    if (_formKey.currentState!.validate()) {
       context.read<AuthBloc>().add(
         AuthRegisterRequested(
           name: _nameController.text.trim(),
@@ -80,7 +81,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: SizedBox(
                   height: context.screenHeight * 0.9,
                   child: Form(
-                    key: _formKey2,
+                    key: _formKey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -110,7 +111,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             CustomTextField(
                               controller: _nameController,
                               label: context.l10n.fullName,
-                              icon: Image.asset('assets/icon/person.png'),
+                              iconAsset: 'assets/icon/person.png',
                               validator: (value) =>
                                   Validators.fullName(value, context),
                             ),
@@ -119,7 +120,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             CustomTextField(
                               controller: _emailController,
                               label: context.l10n.email,
-                              icon: Image.asset('assets/icon/email.png'),
+                              iconAsset: 'assets/icon/email.png',
 
                               validator: (value) => Validators.email(
                                 context,
@@ -131,6 +132,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             CustomPasswordField(
                               controller: _passwordController,
                               label: context.l10n.password,
+                              iconAsset: "assets/icon/password.png",
+
                               validator: (value) => Validators.password(
                                 _passwordController.text,
                                 context,
@@ -141,6 +144,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             CustomPasswordField(
                               controller: _confirmPasswordController,
                               label: context.l10n.confirmPassword,
+                              iconAsset: "assets/icon/password.png",
+
                               validator: (value) {
                                 if (value != _passwordController.text) {
                                   return context.l10n.passwordsNotMatch;
@@ -166,9 +171,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   : Text(
                                       context.l10n.register,
                                       style: context.textTheme.bodyLarge
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                          ?.copyWith(color: AppTheme.white),
                                     ),
                             ),
                           ],

@@ -37,7 +37,23 @@
   "uploadPhoto": "Upload Photo",
   "profileDetail": "Profile Detail",
   "profileLoremIpsum" : "Resources out incentivize relaxation floor loss cc.",
-  "continueText": "Continue"
+  "continueText": "Continue",
+  "seeMore": "see more",
+  "imdb": "IMDB",
+  "metascore": "Metascore",
+  "plot": "Plot",
+  "genre": "Genre",
+  "director": "Director",
+  "actors": "Actors",
+  "writer": "Writer",
+  "releaseDate": "Release Date",
+  "language": "Language",
+  "country": "Country",
+  "awards": "Awards",
+  "imdbVotes": "IMDB Votes",
+  "noMoviesFound": "No Movies Found",
+  "retry": "Retry",
+  "error": "Error"
 
 
 }

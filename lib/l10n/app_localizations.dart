@@ -322,6 +322,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue'**
   String get continueText;
+
+  /// No description provided for @seeMore.
+  ///
+  /// In en, this message translates to:
+  /// **'see more'**
+  String get seeMore;
+
+  /// No description provided for @imdb.
+  ///
+  /// In en, this message translates to:
+  /// **'IMDB'**
+  String get imdb;
+
+  /// No description provided for @metascore.
+  ///
+  /// In en, this message translates to:
+  /// **'Metascore'**
+  String get metascore;
+
+  /// No description provided for @plot.
+  ///
+  /// In en, this message translates to:
+  /// **'Plot'**
+  String get plot;
+
+  /// No description provided for @genre.
+  ///
+  /// In en, this message translates to:
+  /// **'Genre'**
+  String get genre;
+
+  /// No description provided for @director.
+  ///
+  /// In en, this message translates to:
+  /// **'Director'**
+  String get director;
+
+  /// No description provided for @actors.
+  ///
+  /// In en, this message translates to:
+  /// **'Actors'**
+  String get actors;
+
+  /// No description provided for @writer.
+  ///
+  /// In en, this message translates to:
+  /// **'Writer'**
+  String get writer;
+
+  /// No description provided for @releaseDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Release Date'**
+  String get releaseDate;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @country.
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get country;
+
+  /// No description provided for @awards.
+  ///
+  /// In en, this message translates to:
+  /// **'Awards'**
+  String get awards;
+
+  /// No description provided for @imdbVotes.
+  ///
+  /// In en, this message translates to:
+  /// **'IMDB Votes'**
+  String get imdbVotes;
+
+  /// No description provided for @noMoviesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No Movies Found'**
+  String get noMoviesFound;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

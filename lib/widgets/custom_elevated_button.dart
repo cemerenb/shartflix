@@ -24,7 +24,6 @@ class CustomElevatedButton extends StatelessWidget {
     this.height,
     this.width,
   });
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -37,15 +36,16 @@ class CustomElevatedButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor ?? AppTheme.accentColor,
           foregroundColor: textColor ?? theme.colorScheme.onPrimary,
-          padding: padding ?? const EdgeInsets.symmetric(vertical: 20),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
           ),
+          padding:
+              padding ??
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         ),
         child: isLoading
-            ? const SizedBox(
-                height: 20,
-                width: 20,
+            ? const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.white),

@@ -37,6 +37,24 @@
 "uploadPhoto": "Fotoğraf Yükle",
   "profileDetail": "Profi Detayı",
   "profileLoremIpsum" : "Resources out incentivize relaxation floor loss cc.",
-  "continueText": "Devam Et"
+  "continueText": "Devam Et",
+  "seeMore": "daha fazla",
+  "imdb": "IMDB",
+  "metascore": "Metascore",
+  "plot": "Konu",
+  "genre": "Tür",
+  "director": "Yönetmen",
+  "actors": "Oyuncular",
+  "writer": "Senaryo",
+  "releaseDate": "Çıkış Tarihi",
+  "language": "Dil",
+  "country": "Ülke",
+  "awards": "Ödüller",
+  "imdbVotes": "IMDB Oyları",
+    "noMoviesFound": "Film Bulunamadı",
+    "retry": "Tekrar Dene",
+    "error": "Hata"
+    
+
 
 }

@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:shartflix/shared/utils/context/constants/url.dart';
+import 'package:shartflix/shared/utils/constants/url.dart';
 
 class DioClient {
   late final Dio _dio;

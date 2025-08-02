@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:shartflix/features/auth/bloc/auth_bloc.dart';
-import 'package:shartflix/features/auth/bloc/auth_event.dart';
-import 'package:shartflix/features/auth/bloc/auth_state.dart';
+import 'package:shartflix/features/auth/view_model/auth_bloc.dart';
+import 'package:shartflix/features/auth/view_model/auth_event.dart';
+import 'package:shartflix/features/auth/view_model/auth_state.dart';
 import 'package:shartflix/features/auth/widget/image_picker_sheet.dart';
+import 'package:shartflix/shared/theme/app_theme.dart';
 import 'package:shartflix/shared/utils/context/context_extensions.dart';
 import 'package:shartflix/widgets/custom_app_bar.dart';
 import 'package:shartflix/widgets/custom_container.dart';
@@ -62,7 +63,7 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
           appBar: CustomAppBar(
             title: context.l10n.profileDetail,
             leading: IconButton(
-              onPressed: () => context.go('/login'),
+              onPressed: () => GoRouterHelper(context).pop(),
               icon: const Icon(Icons.arrow_back_rounded),
             ),
           ),
@@ -127,7 +128,12 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
                     child: CustomElevatedButton(
                       isLoading: isLoading,
                       onPressed: isLoading ? null : _uploadImage,
-                      child: Text(context.l10n.continueText),
+                      child: Text(
+                        context.l10n.continueText,
+                        style: context.textTheme.bodyLarge?.copyWith(
+                          color: AppTheme.white,
+                        ),
+                      ),
                     ),
                   ),
                 ],

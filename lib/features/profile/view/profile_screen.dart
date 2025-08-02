@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shartflix/features/auth/bloc/auth_bloc.dart';
-import 'package:shartflix/features/auth/bloc/auth_event.dart';
-import 'package:shartflix/features/auth/bloc/auth_state.dart';
+import 'package:shartflix/features/auth/view_model/auth_bloc.dart';
+import 'package:shartflix/features/auth/view_model/auth_event.dart';
+import 'package:shartflix/features/auth/view_model/auth_state.dart';
+import 'package:shartflix/shared/theme/app_theme.dart';
 import 'package:shartflix/shared/utils/context/context_extensions.dart';
 import 'package:shartflix/shared/utils/spacers/spacers.dart';
 import 'package:shartflix/widgets/custom_container.dart';
+import 'package:shartflix/widgets/custom_elevated_button.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -14,7 +16,38 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(context.l10n.profile), centerTitle: true),
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            context.go('/home');
+          },
+          icon: Icon(Icons.arrow_back_rounded),
+        ),
+        title: Text(context.l10n.profile),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: CustomElevatedButton(
+              padding: EdgeInsets.symmetric(horizontal: 6),
+              onPressed: () {},
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.diamond_outlined),
+                  SizedBox(width: 5),
+                  Text(
+                    'Sınırlı Teklif',
+                    style: context.textTheme.bodyLarge?.copyWith(
+                      color: AppTheme.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthUnauthenticated) {
@@ -27,66 +60,85 @@ class ProfileScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(24),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Theme.of(context).colorScheme.primary,
-                          Theme.of(context).colorScheme.secondary,
-                        ],
-                      ),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Column(
+                  Spacers.verticalLarge,
+                  SizedBox(
+                    width: context.screenWidth,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment
+                          .start, // Buton yukarı hizalı kalsın
                       children: [
-                        CircleAvatar(
-                          radius: 50,
-                          backgroundColor: Colors.white.withAlpha(55),
-                          backgroundImage: state.user.photoUrl != null
-                              ? NetworkImage(state.user.photoUrl!)
-                              : null,
-                          child: state.user.photoUrl == ""
-                              ? const Icon(
-                                  Icons.person,
-                                  size: 50,
-                                  color: Colors.white,
-                                )
-                              : null,
-                        ),
-                        const SizedBox(height: 16),
-
-                        Text(
-                          state.user.name,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Spacers.small,
-
-                        Text(
-                          state.user.email,
-                          style: TextStyle(
-                            color: Colors.white.withAlpha(200),
-                            fontSize: 16,
-                          ),
-                        ),
-                        Spacers.large,
-
-                        state.user.photoUrl == ""
-                            ? CustomContainer(
-                                child: Text(
-                                  "Henüz bir fotoğraf yüklemediniz. Bazı özellikleri kullanabilmek için fotoğraf yüklemeniz gerekiyor.",
-                                  textAlign: TextAlign.center,
+                        Expanded(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(40),
+                                child:
+                                    state.user.photoUrl != null &&
+                                        state.user.photoUrl!.isNotEmpty
+                                    ? Image.network(
+                                        state.user.photoUrl!,
+                                        fit: BoxFit.fill,
+                                        width: 70,
+                                        height: 70,
+                                      )
+                                    : Container(
+                                        width: 70,
+                                        height: 70,
+                                        color: Colors.grey.shade300,
+                                        child: const Icon(
+                                          Icons.person,
+                                          size: 40,
+                                        ),
+                                      ),
+                              ),
+                              Spacers.horizontalMedium,
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      state.user.name,
+                                      style: context.textTheme.titleMedium,
+                                      softWrap: true,
+                                      overflow: TextOverflow.visible,
+                                    ),
+                                    Text(
+                                      "ID: ${state.user.id}",
+                                      style: context.textTheme.labelMedium,
+                                      softWrap: true,
+                                      overflow: TextOverflow.visible,
+                                    ),
+                                  ],
                                 ),
-                              )
-                            : SizedBox(),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: Align(
+                            alignment: Alignment.topRight,
+                            child: SizedBox(
+                              height: 40,
+                              child: CustomElevatedButton(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                ),
+                                borderRadius: 10,
+                                height: 50,
+                                onPressed: () {
+                                  GoRouter.of(context).push('/upload-photo');
+                                },
+                                child: Text(context.l10n.uploadPhoto),
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
+
                   const SizedBox(height: 24),
 
                   Card(

@@ -121,4 +121,52 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get continueText => 'Continue';
+
+  @override
+  String get seeMore => 'see more';
+
+  @override
+  String get imdb => 'IMDB';
+
+  @override
+  String get metascore => 'Metascore';
+
+  @override
+  String get plot => 'Plot';
+
+  @override
+  String get genre => 'Genre';
+
+  @override
+  String get director => 'Director';
+
+  @override
+  String get actors => 'Actors';
+
+  @override
+  String get writer => 'Writer';
+
+  @override
+  String get releaseDate => 'Release Date';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get country => 'Country';
+
+  @override
+  String get awards => 'Awards';
+
+  @override
+  String get imdbVotes => 'IMDB Votes';
+
+  @override
+  String get noMoviesFound => 'No Movies Found';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
+  String get error => 'Error';
 }

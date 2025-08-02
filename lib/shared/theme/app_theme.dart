@@ -14,9 +14,10 @@ class AppTheme {
   static const Color lightTextColor = Color.fromARGB(255, 0, 0, 0);
   static const Color darkTransparent = Color.fromARGB(93, 149, 149, 149);
   static const Color lightTransparent = Color.fromARGB(105, 192, 192, 192);
-
   static const Color darkSubtitleColor = Color(0xFFB0B0B0);
   static const Color lightSubtitleColor = Color.fromARGB(255, 100, 100, 100);
+  static const Color white = Colors.white;
+  static const Color black = Colors.black;
 
   static ThemeData get darkTheme {
     return ThemeData(
@@ -59,6 +60,7 @@ class AppTheme {
           ),
         ),
       ),
+      textSelectionTheme: TextSelectionThemeData(cursorColor: darkTextColor),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: accentColor,
@@ -152,17 +154,19 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: accentColor,
-          foregroundColor: lightTextColor,
+          foregroundColor: darkTextColor,
           padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
         ),
       ),
+      textSelectionTheme: TextSelectionThemeData(cursorColor: lightTextColor),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: lightSurfaceColor,
         iconColor: lightSubtitleColor,
+
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: lightBorderColor, width: 2),

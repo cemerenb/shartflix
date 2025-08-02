@@ -121,4 +121,52 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get continueText => 'Devam Et';
+
+  @override
+  String get seeMore => 'daha fazla';
+
+  @override
+  String get imdb => 'IMDB';
+
+  @override
+  String get metascore => 'Metascore';
+
+  @override
+  String get plot => 'Konu';
+
+  @override
+  String get genre => 'Tür';
+
+  @override
+  String get director => 'Yönetmen';
+
+  @override
+  String get actors => 'Oyuncular';
+
+  @override
+  String get writer => 'Senaryo';
+
+  @override
+  String get releaseDate => 'Çıkış Tarihi';
+
+  @override
+  String get language => 'Dil';
+
+  @override
+  String get country => 'Ülke';
+
+  @override
+  String get awards => 'Ödüller';
+
+  @override
+  String get imdbVotes => 'IMDB Oyları';
+
+  @override
+  String get noMoviesFound => 'Film Bulunamadı';
+
+  @override
+  String get retry => 'Tekrar Dene';
+
+  @override
+  String get error => 'Hata';
 }

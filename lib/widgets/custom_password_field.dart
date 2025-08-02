@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shartflix/shared/icon_color.dart';
 
 class CustomPasswordField extends StatefulWidget {
   final TextEditingController controller;
   final String label;
-  final IconData icon;
+  final String? iconAsset;
   final String? Function(String?)? validator;
   final bool enabled;
 
@@ -11,7 +12,7 @@ class CustomPasswordField extends StatefulWidget {
     super.key,
     required this.controller,
     required this.label,
-    this.icon = Icons.lock,
+    this.iconAsset,
     this.validator,
     this.enabled = true,
   });
@@ -29,20 +30,23 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
       controller: widget.controller,
       obscureText: _obscureText,
       enabled: widget.enabled,
+      validator: widget.validator,
       decoration: InputDecoration(
         labelText: widget.label,
-        prefixIcon: Image.asset('assets/icon/password.png'),
+        prefixIcon: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: themedIcon(context, widget.iconAsset!),
+        ),
         suffixIcon: IconButton(
-          icon: Image.asset(
+          icon: themedIcon(
+            context,
             _obscureText
                 ? 'assets/icon/visibility_on.png'
                 : 'assets/icon/visibility_off.png',
-            scale: .8,
           ),
           onPressed: () => setState(() => _obscureText = !_obscureText),
         ),
       ),
-      validator: widget.validator,
     );
   }
 }

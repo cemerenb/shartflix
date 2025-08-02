@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shartflix/shared/icon_color.dart';
 
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final String label;
-  final Widget icon;
+  final String? iconAsset;
   final String? Function(String?)? validator;
   final TextInputType keyboardType;
   final bool enabled;
@@ -12,7 +13,7 @@ class CustomTextField extends StatefulWidget {
     super.key,
     required this.controller,
     required this.label,
-    required this.icon,
+    this.iconAsset,
     this.validator,
     this.keyboardType = TextInputType.text,
     this.enabled = true,
@@ -58,7 +59,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
       keyboardType: widget.keyboardType,
       decoration: InputDecoration(
         labelText: widget.label,
-        prefixIcon: widget.icon,
+        prefixIcon: widget.iconAsset == null
+            ? SizedBox()
+            : themedIcon(context, widget.iconAsset!),
       ),
       validator: widget.validator,
     );

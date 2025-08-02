@@ -7,7 +7,7 @@ import 'package:shartflix/features/auth/model/login_parameter.dart';
 import 'package:shartflix/features/auth/model/user_model.dart';
 import 'package:shartflix/features/auth/model/register_paarameter.dart';
 
-import 'package:shartflix/shared/utils/context/constants/url.dart';
+import 'package:shartflix/shared/utils/constants/url.dart';
 import 'package:shartflix/shared/utils/exceptions/app_exceptions.dart';
 import 'package:shartflix/shared/model/api_response.dart';
 import 'package:shartflix/shared/network/dio_client.dart';
