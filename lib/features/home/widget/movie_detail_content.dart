@@ -81,7 +81,6 @@ class _MovieDetailContentState extends State<MovieDetailContent> {
                   ),
                 ),
 
-                // BlocBuilder ile favorite button'u sar
                 BlocBuilder<ProfileBloc, ProfileState>(
                   builder: (context, profileState) {
                     return buildFavoriteButton(

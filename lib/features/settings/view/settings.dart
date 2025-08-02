@@ -28,7 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   void initState() {
     super.initState();
-    _loadSettings(); // async işlemleri başlat
+    _loadSettings();
   }
 
   Future<void> _loadSettings() async {
@@ -57,7 +57,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Genel Ayarlar
             buildSectionTitle(context, context.l10n.general),
             Spacers.verticalSmall,
 
@@ -78,7 +77,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               onTap: () => _showThemeDialog(context),
             ),
 
-            // Uygulama Ayarları
             buildSectionTitle(context, context.l10n.application),
 
             buildSwitchTile(
@@ -140,7 +138,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
             Spacers.verticalMedium,
 
-            // Destek ve Bilgi
             buildSectionTitle(context, context.l10n.help),
             Spacers.verticalSmall,
 

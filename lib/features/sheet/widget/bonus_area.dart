@@ -62,7 +62,6 @@ class BonusArea extends StatelessWidget {
   }
 }
 
-// Bonus item widget'ı
 class BonusItem extends StatelessWidget {
   final String iconAsset;
   final String title;
