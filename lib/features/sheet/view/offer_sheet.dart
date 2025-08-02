@@ -89,13 +89,13 @@ class JetonPackageBottomSheet extends StatelessWidget {
                           JetonPackageCard(
                             originalAmount: '200',
                             bonusAmount: '330',
-                            price: '₺99,99',
+                            price: '99,99',
                             discountPercentage: '+10%',
                           ),
                           JetonPackageCard(
                             originalAmount: '2.000',
                             bonusAmount: '3.375',
-                            price: '₺799,99',
+                            price: '799,99',
                             gradientColor: Color.fromARGB(255, 89, 73, 230),
                             discountPercentage: '+70%',
                             isHighlighted: true,
@@ -103,7 +103,7 @@ class JetonPackageBottomSheet extends StatelessWidget {
                           JetonPackageCard(
                             originalAmount: '1.000',
                             bonusAmount: '1.350',
-                            price: '₺399,99',
+                            price: '399,99',
                             discountPercentage: '+35%',
                           ),
                         ],

@@ -23,17 +23,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     try {
-      if (event.isRefresh && _allMovies.isNotEmpty) {
-        emit(
-          MovieLoaded(
-            movies: _allMovies,
-            pagination: _currentPagination!,
-            isRefreshing: true,
-          ),
-        );
-      } else {
-        emit(const MovieLoading());
-      }
+      emit(const MovieLoading());
 
       final response = await homeRepository.getMovies(page: event.page);
 

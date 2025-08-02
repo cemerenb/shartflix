@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shartflix/features/sheet/widget/colorful_container.dart';
 import 'package:shartflix/shared/theme/app_theme.dart';
 import 'package:shartflix/shared/utils/context/context_extensions.dart';
+import 'package:shartflix/shared/utils/spacers/spacers.dart';
 
 class JetonPackageCard extends StatelessWidget {
   final String originalAmount;
@@ -25,15 +26,14 @@ class JetonPackageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cardWidth = (context.screenWidth - 60) / 3;
-
+    final double widgetWidth = (context.screenWidth - 70) / 3;
     return SizedBox(
-      width: cardWidth,
       height: context.screenHeight * 0.25,
       child: Stack(
-        clipBehavior: Clip.none,
         children: [
           Container(
+            width: widgetWidth,
+
             margin: const EdgeInsets.only(top: 20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -48,10 +48,14 @@ class JetonPackageCard extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 20,
+              ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  Spacers.verticalMedium,
                   Text(
                     originalAmount,
                     style: context.textTheme.bodyMedium?.copyWith(
@@ -95,14 +99,16 @@ class JetonPackageCard extends StatelessWidget {
           if (discountPercentage != null)
             Positioned(
               top: 0,
-              left: 0,
-              right: 0,
+              right: (widgetWidth - 45) / 2,
               child: Center(
                 child: SheetColorfulContainer(
                   height: 45,
                   width: 45,
                   gradientColor: gradientColor,
-                  child: Text(discountPercentage ?? ""),
+                  child: Text(
+                    discountPercentage ?? "",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             ),
